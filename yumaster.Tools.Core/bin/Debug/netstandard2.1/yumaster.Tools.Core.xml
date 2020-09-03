@@ -1,0 +1,665 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>yumaster.Tools.Core</name>
+    </assembly>
+    <members>
+        <member name="M:yumaster.Tools.Core.AspNetCore.DbSetExtensions.AddOrUpdate``2(Microsoft.EntityFrameworkCore.DbSet{``0},System.Linq.Expressions.Expression{System.Func{``0,``1}},``0[])">
+            <summary>
+            添加或更新
+            </summary>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TKey">按哪个字段更新</typeparam>
+            <param name="dbSet"></param>
+            <param name="keySelector">按哪个字段更新</param>
+            <param name="entities"></param>
+        </member>
+        <member name="M:yumaster.Tools.Core.AspNetCore.DbSetExtensions.AddOrUpdate``2(Microsoft.EntityFrameworkCore.DbSet{``0},System.Linq.Expressions.Expression{System.Func{``0,``1}},System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            添加或更新
+            </summary>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TKey">按哪个字段更新</typeparam>
+            <param name="dbSet"></param>
+            <param name="keySelector">按哪个字段更新</param>
+            <param name="entities"></param>
+        </member>
+        <member name="M:yumaster.Tools.Core.AspNetCore.DbSetExtensions.AddOrUpdate``2(Microsoft.EntityFrameworkCore.DbSet{``0},System.Linq.Expressions.Expression{System.Func{``0,``1}},``0)">
+            <summary>
+            添加或更新
+            </summary>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TKey">按哪个字段更新</typeparam>
+            <param name="dbSet"></param>
+            <param name="keySelector">按哪个字段更新</param>
+            <param name="entity"></param>
+        </member>
+        <member name="T:yumaster.Tools.Core.AspNetCore.ServiceCollectionExtensions">
+            <summary>
+            依赖注入ServiceCollection容器扩展方法
+            </summary>
+        </member>
+        <member name="M:yumaster.Tools.Core.AspNetCore.ServiceCollectionExtensions.AddResumeFileResult(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            注入断点续传服务
+            </summary>
+            <param name="services"></param>
+            <returns></returns>
+        </member>
+        <member name="M:yumaster.Tools.Core.AspNetCore.ServiceCollectionExtensions.AddSevenZipCompressor(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            注入7z压缩
+            </summary>
+            <param name="services"></param>
+            <returns></returns>
+        </member>
+        <member name="M:yumaster.Tools.Core.AspNetCore.ServiceCollectionExtensions.AddStaticHttpContext(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            注入HttpContext静态对象，方便在任意地方获取HttpContext，services.AddHttpContextAccessor();
+            </summary>
+            <param name="services"></param>
+        </member>
+        <member name="M:yumaster.Tools.Core.AspNetCore.ServiceCollectionExtensions.UseStaticHttpContext(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
+            <summary>
+            注入HttpContext静态对象，方便在任意地方获取HttpContext，app.UseStaticHttpContext();
+            </summary>
+            <param name="app"></param>
+            <returns></returns>
+        </member>
+        <member name="T:yumaster.Tools.Core.AspNetCore.UpdateIgnoreAttribute">
+            <summary>
+            更新时忽略的字段，检测到这个attribute时AddOrUpdate将忽略改字段
+            </summary>
+        </member>
+        <member name="T:yumaster.Tools.Core.Models.ITree`1">
+            <summary>
+            树形实体接口
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:yumaster.Tools.Core.Models.ITree`1.Name">
+            <summary>
+            名字
+            </summary>
+        </member>
+        <member name="P:yumaster.Tools.Core.Models.ITree`1.Parent">
+            <summary>
+            父节点
+            </summary>
+        </member>
+        <member name="P:yumaster.Tools.Core.Models.ITree`1.Children">
+            <summary>
+            子级
+            </summary>
+        </member>
+        <member name="P:yumaster.Tools.Core.Models.ITree`1.AllChildren">
+            <summary>
+            所有子级
+            </summary>
+        </member>
+        <member name="P:yumaster.Tools.Core.Models.ITree`1.AllParent">
+            <summary>
+            所有父级
+            </summary>
+        </member>
+        <member name="P:yumaster.Tools.Core.Models.ITree`1.IsRoot">
+            <summary>
+            是否是根节点
+            </summary>
+        </member>
+        <member name="P:yumaster.Tools.Core.Models.ITree`1.IsLeaf">
+            <summary>
+            是否是叶子节点
+            </summary>
+        </member>
+        <member name="P:yumaster.Tools.Core.Models.ITree`1.Level">
+            <summary>
+            深度
+            </summary>
+        </member>
+        <member name="P:yumaster.Tools.Core.Models.ITree`1.Path">
+            <summary>
+            节点路径（UNIX路径格式，以“/”分隔）
+            </summary>
+        </member>
+        <member name="M:yumaster.Tools.Core.Models.ITree`1.GetChildren(yumaster.Tools.Core.Models.ITree{`0})">
+            <summary>
+            递归取出所有下级
+            </summary>
+            <param name="t"></param>
+            <returns></returns>
+        </member>
+        <member name="M:yumaster.Tools.Core.Models.ITree`1.GetParents(yumaster.Tools.Core.Models.ITree{`0})">
+            <summary>
+            递归取出所有上级
+            </summary>
+            <param name="t"></param>
+            <returns></returns>
+        </member>
+        <member name="T:yumaster.Tools.Core.Models.TreeExtensions">
+            <summary>
+            树形数据扩展
+            </summary>
+        </member>
+        <member name="M:yumaster.Tools.Core.Models.TreeExtensions.Filter``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})">
+            <summary>
+            过滤
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="items"></param>
+            <param name="func"></param>
+            <returns></returns>
+        </member>
+        <member name="M:yumaster.Tools.Core.Models.TreeExtensions.Filter``1(``0,System.Func{``0,System.Boolean})">
+            <summary>
+            过滤
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="item"></param>
+            <param name="func"></param>
+            <returns></returns>
+        </member>
+        <member name="M:yumaster.Tools.Core.Models.TreeExtensions.Flatten``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            平铺开
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="items"></param>
+            <returns></returns>
+        </member>
+        <member name="T:yumaster.Tools.Core.Net.HttpContext2">
+            <summary>
+            实现类似于.NET Framework中的HttpContext静态对象，使用前需要在Startup中注入，ConfigureServices方法中：services.AddStaticHttpContext();，Configure方法中：app.UseStaticHttpContext();
+            </summary>
+        </member>
+        <member name="P:yumaster.Tools.Core.Net.HttpContext2.Current">
+            <summary>
+            获取当前禽求上下文，使用前需要在Startup中注入，ConfigureServices方法中：services.AddStaticHttpContext();，Configure方法中：app.UseStaticHttpContext();
+            </summary>
+        </member>
+        <member name="T:yumaster.Tools.Core.Net.WebExtension">
+            <summary>
+            Web操作扩展
+            </summary>
+        </member>
+        <member name="M:yumaster.Tools.Core.Net.WebExtension.GetIPAddressInfo(System.String)">
+            <summary>
+            根据IP地址获取详细地理信息
+            </summary>
+            <param name="ip"></param>
+            <returns></returns>
+        </member>
+        <member name="M:yumaster.Tools.Core.Net.WebExtension.GetPhysicsAddressInfo(System.String)">
+            <summary>
+            根据IP地址获取详细地理信息对象
+            </summary>
+            <param name="ip"></param>
+            <returns></returns>
+        </member>
+        <member name="M:yumaster.Tools.Core.Net.WebExtension.GetISP(System.String)">
+            <summary>
+            根据IP地址获取ISP
+            </summary>
+            <param name="ip"></param>
+            <returns></returns>
+        </member>
+        <member name="M:yumaster.Tools.Core.Net.WebExtension.Set(Microsoft.AspNetCore.Http.ISession,System.String,System.Object)">
+            <summary>
+            写Session
+            </summary>
+            <param name="session"></param>
+            <param name="key">键</param>
+            <param name="value">值</param>
+        </member>
+        <member name="M:yumaster.Tools.Core.Net.WebExtension.Get``1(Microsoft.AspNetCore.Http.ISession,System.String)">
+            <summary>
+            获取Session
+            </summary>
+            <typeparam name="T">对象</typeparam>
+            <param name="session"></param>
+            <param name="key">键</param>
+            <returns>对象</returns>
+        </member>
+        <member name="T:yumaster.Tools.AspNetCore.ResumeFileResults.Executor.ResumeFileContentResultExecutor">
+            <summary>
+            断点续传文件FileResult执行器
+            </summary>
+        </member>
+        <member name="M:yumaster.Tools.AspNetCore.ResumeFileResults.Executor.ResumeFileContentResultExecutor.#ctor(Microsoft.Extensions.Logging.ILoggerFactory)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="loggerFactory"></param>
+        </member>
+        <member name="M:yumaster.Tools.AspNetCore.ResumeFileResults.Executor.ResumeFileContentResultExecutor.ExecuteAsync(Microsoft.AspNetCore.Mvc.ActionContext,yumaster.Tools.AspNetCore.ResumeFileResults.ResumeFileResult.ResumeFileContentResult)">
+            <summary>
+            执行Result
+            </summary>
+            <param name="context"></param>
+            <param name="result"></param>
+            <returns></returns>
+        </member>
+        <member name="T:yumaster.Tools.AspNetCore.ResumeFileResults.Executor.ResumeFileStreamResultExecutor">
+            <summary>
+            可断点续传的FileStreamResult执行器
+            </summary>
+        </member>
+        <member name="M:yumaster.Tools.AspNetCore.ResumeFileResults.Executor.ResumeFileStreamResultExecutor.#ctor(Microsoft.Extensions.Logging.ILoggerFactory)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="loggerFactory"></param>
+        </member>
+        <member name="M:yumaster.Tools.AspNetCore.ResumeFileResults.Executor.ResumeFileStreamResultExecutor.ExecuteAsync(Microsoft.AspNetCore.Mvc.ActionContext,yumaster.Tools.AspNetCore.ResumeFileResults.ResumeFileResult.ResumeFileStreamResult)">
+            <summary>
+            执行Result
+            </summary>
+            <param name="context"></param>
+            <param name="result"></param>
+            <returns></returns>
+        </member>
+        <member name="T:yumaster.Tools.AspNetCore.ResumeFileResults.Executor.ResumePhysicalFileResultExecutor">
+            <summary>
+            通过本地文件的可断点续传的FileResult执行器
+            </summary>
+        </member>
+        <member name="M:yumaster.Tools.AspNetCore.ResumeFileResults.Executor.ResumePhysicalFileResultExecutor.#ctor(Microsoft.Extensions.Logging.ILoggerFactory)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="loggerFactory"></param>
+        </member>
+        <member name="M:yumaster.Tools.AspNetCore.ResumeFileResults.Executor.ResumePhysicalFileResultExecutor.ExecuteAsync(Microsoft.AspNetCore.Mvc.ActionContext,yumaster.Tools.AspNetCore.ResumeFileResults.ResumeFileResult.ResumePhysicalFileResult)">
+            <summary>
+            执行Result
+            </summary>
+            <param name="context"></param>
+            <param name="result"></param>
+            <returns></returns>
+        </member>
+        <member name="T:yumaster.Tools.AspNetCore.ResumeFileResults.Executor.ResumeVirtualFileResultExecutor">
+            <summary>
+            使用本地虚拟路径的可断点续传的FileResult
+            </summary>
+        </member>
+        <member name="M:yumaster.Tools.AspNetCore.ResumeFileResults.Executor.ResumeVirtualFileResultExecutor.ExecuteAsync(Microsoft.AspNetCore.Mvc.ActionContext,yumaster.Tools.AspNetCore.ResumeFileResults.ResumeFileResult.ResumeVirtualFileResult)">
+            <summary>
+            执行FileResult
+            </summary>
+            <param name="context"></param>
+            <param name="result"></param>
+            <returns></returns>
+        </member>
+        <member name="T:yumaster.Tools.AspNetCore.ResumeFileResults.Extensions.ActionContextExtension">
+            <summary>
+            ResumeFileHelper
+            </summary>
+        </member>
+        <member name="M:yumaster.Tools.AspNetCore.ResumeFileResults.Extensions.ActionContextExtension.SetContentDispositionHeaderInline(Microsoft.AspNetCore.Mvc.ActionContext,yumaster.Tools.AspNetCore.ResumeFileResults.ResumeFileResult.IResumeFileResult)">
+            <summary>
+            设置响应头ContentDispositionHeader
+            </summary>
+            <param name="context"></param>
+            <param name="result"></param>
+        </member>
+        <member name="T:yumaster.Tools.AspNetCore.ResumeFileResults.Extensions.ControllerExtensions">
+            <summary>
+            Controller扩展方法
+            </summary>
+        </member>
+        <member name="M:yumaster.Tools.AspNetCore.ResumeFileResults.Extensions.ControllerExtensions.ResumeFile(Microsoft.AspNetCore.Mvc.ControllerBase,System.Byte[],System.String,System.String)">
+            <summary>
+            可断点续传和多线程下载的FileResult
+            </summary>
+            <param name="controller"></param>
+            <param name="fileContents">文件二进制流</param>
+            <param name="contentType">Content-Type</param>
+            <param name="fileDownloadName">下载的文件名</param>
+            <returns></returns>
+        </member>
+        <member name="M:yumaster.Tools.AspNetCore.ResumeFileResults.Extensions.ControllerExtensions.ResumeFile(Microsoft.AspNetCore.Mvc.ControllerBase,System.Byte[],System.String)">
+            <summary>
+            可断点续传和多线程下载的FileResult
+            </summary>
+            <param name="controller"></param>
+            <param name="fileContents">文件二进制流</param>
+            <param name="fileDownloadName">下载的文件名</param>
+            <returns></returns>
+        </member>
+        <member name="M:yumaster.Tools.AspNetCore.ResumeFileResults.Extensions.ControllerExtensions.ResumeFile(Microsoft.AspNetCore.Mvc.ControllerBase,System.Byte[],System.String,System.String,System.String)">
+            <summary>
+            可断点续传和多线程下载的FileResult
+            </summary>
+            <param name="controller"></param>
+            <param name="fileContents">文件二进制流</param>
+            <param name="contentType">Content-Type</param>
+            <param name="fileDownloadName">下载的文件名</param>
+            <param name="etag">ETag</param>
+            <returns></returns>
+        </member>
+        <member name="M:yumaster.Tools.AspNetCore.ResumeFileResults.Extensions.ControllerExtensions.ResumeFile(Microsoft.AspNetCore.Mvc.ControllerBase,System.IO.FileStream,System.String,System.String)">
+            <summary>
+            可断点续传和多线程下载的FileResult
+            </summary>
+            <param name="controller"></param>
+            <param name="fileStream">文件二进制流</param>
+            <param name="contentType">Content-Type</param>
+            <param name="fileDownloadName">下载的文件名</param>
+            <returns></returns>
+        </member>
+        <member name="M:yumaster.Tools.AspNetCore.ResumeFileResults.Extensions.ControllerExtensions.ResumeFile(Microsoft.AspNetCore.Mvc.ControllerBase,System.IO.FileStream,System.String)">
+            <summary>
+            可断点续传和多线程下载的FileResult
+            </summary>
+            <param name="controller"></param>
+            <param name="fileStream">文件二进制流</param>
+            <param name="fileDownloadName">下载的文件名</param>
+            <returns></returns>
+        </member>
+        <member name="M:yumaster.Tools.AspNetCore.ResumeFileResults.Extensions.ControllerExtensions.ResumeFile(Microsoft.AspNetCore.Mvc.ControllerBase,System.IO.FileStream,System.String,System.String,System.String)">
+            <summary>
+            可断点续传和多线程下载的FileResult
+            </summary>
+            <param name="controller"></param>
+            <param name="fileStream">文件二进制流</param>
+            <param name="contentType">Content-Type</param>
+            <param name="fileDownloadName">下载的文件名</param>
+            <param name="etag">ETag</param>
+            <returns></returns>
+        </member>
+        <member name="M:yumaster.Tools.AspNetCore.ResumeFileResults.Extensions.ControllerExtensions.ResumeFile(Microsoft.AspNetCore.Mvc.ControllerBase,System.String,System.String,System.String)">
+            <summary>
+            可断点续传和多线程下载的FileResult
+            </summary>
+            <param name="controller"></param>
+            <param name="virtualPath">服务端本地文件的虚拟路径</param>
+            <param name="contentType">Content-Type</param>
+            <param name="fileDownloadName">下载的文件名</param>
+            <returns></returns>
+        </member>
+        <member name="M:yumaster.Tools.AspNetCore.ResumeFileResults.Extensions.ControllerExtensions.ResumeFile(Microsoft.AspNetCore.Mvc.ControllerBase,System.String,System.String)">
+            <summary>
+            可断点续传和多线程下载的FileResult
+            </summary>
+            <param name="controller"></param>
+            <param name="virtualPath">服务端本地文件的虚拟路径</param>
+            <param name="fileDownloadName">下载的文件名</param>
+            <returns></returns>
+        </member>
+        <member name="M:yumaster.Tools.AspNetCore.ResumeFileResults.Extensions.ControllerExtensions.ResumeFile(Microsoft.AspNetCore.Mvc.ControllerBase,System.String,System.String,System.String,System.String)">
+            <summary>
+            可断点续传和多线程下载的FileResult
+            </summary>
+            <param name="controller"></param>
+            <param name="virtualPath">服务端本地文件的虚拟路径</param>
+            <param name="contentType">Content-Type</param>
+            <param name="fileDownloadName">下载的文件名</param>
+            <param name="etag">ETag</param>
+            <returns></returns>
+        </member>
+        <member name="M:yumaster.Tools.AspNetCore.ResumeFileResults.Extensions.ControllerExtensions.ResumePhysicalFile(Microsoft.AspNetCore.Mvc.ControllerBase,System.String,System.String,System.String)">
+            <summary>
+            可断点续传和多线程下载的FileResult
+            </summary>
+            <param name="controller"></param>
+            <param name="physicalPath">服务端本地文件的物理路径</param>
+            <param name="contentType">Content-Type</param>
+            <param name="fileDownloadName">下载的文件名</param>
+            <returns></returns>
+        </member>
+        <member name="M:yumaster.Tools.AspNetCore.ResumeFileResults.Extensions.ControllerExtensions.ResumePhysicalFile(Microsoft.AspNetCore.Mvc.ControllerBase,System.String,System.String)">
+            <summary>
+            可断点续传和多线程下载的FileResult
+            </summary>
+            <param name="controller"></param>
+            <param name="physicalPath">服务端本地文件的物理路径</param>
+            <param name="fileDownloadName">下载的文件名</param>
+            <returns></returns>
+        </member>
+        <member name="M:yumaster.Tools.AspNetCore.ResumeFileResults.Extensions.ControllerExtensions.ResumePhysicalFile(Microsoft.AspNetCore.Mvc.ControllerBase,System.String,System.String,System.String,System.String)">
+            <summary>
+            可断点续传和多线程下载的FileResult
+            </summary>
+            <param name="controller"></param>
+            <param name="physicalPath">服务端本地文件的物理路径</param>
+            <param name="contentType">Content-Type</param>
+            <param name="fileDownloadName">下载的文件名</param>
+            <param name="etag">ETag</param>
+            <returns></returns>
+        </member>
+        <member name="T:yumaster.Tools.AspNetCore.ResumeFileResults.ResumeFileResult.IResumeFileResult">
+            <summary>
+            可断点续传的FileResult
+            </summary>
+        </member>
+        <member name="P:yumaster.Tools.AspNetCore.ResumeFileResults.ResumeFileResult.IResumeFileResult.FileDownloadName">
+            <summary>
+            文件下载名
+            </summary>
+        </member>
+        <member name="P:yumaster.Tools.AspNetCore.ResumeFileResults.ResumeFileResult.IResumeFileResult.FileInlineName">
+            <summary>
+            给响应头的文件名
+            </summary>
+        </member>
+        <member name="T:yumaster.Tools.AspNetCore.ResumeFileResults.ResumeFileResult.ResumeFileContentResult">
+            <summary>
+            基于Stream的ResumeFileContentResult
+            </summary>
+        </member>
+        <member name="M:yumaster.Tools.AspNetCore.ResumeFileResults.ResumeFileResult.ResumeFileContentResult.#ctor(System.Byte[],System.String,System.String)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="fileContents">文件二进制流</param>
+            <param name="contentType">Content-Type</param>
+            <param name="etag">ETag</param>
+        </member>
+        <member name="M:yumaster.Tools.AspNetCore.ResumeFileResults.ResumeFileResult.ResumeFileContentResult.#ctor(System.Byte[],Microsoft.Net.Http.Headers.MediaTypeHeaderValue,Microsoft.Net.Http.Headers.EntityTagHeaderValue)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="fileContents">文件二进制流</param>
+            <param name="contentType">Content-Type</param>
+            <param name="etag">ETag</param>
+        </member>
+        <member name="P:yumaster.Tools.AspNetCore.ResumeFileResults.ResumeFileResult.ResumeFileContentResult.FileInlineName">
+            <inheritdoc/>
+        </member>
+        <member name="M:yumaster.Tools.AspNetCore.ResumeFileResults.ResumeFileResult.ResumeFileContentResult.ExecuteResultAsync(Microsoft.AspNetCore.Mvc.ActionContext)">
+            <inheritdoc/>
+        </member>
+        <member name="T:yumaster.Tools.AspNetCore.ResumeFileResults.ResumeFileResult.ResumeFileStreamResult">
+            <summary>
+            基于Stream的ResumeFileStreamResult
+            </summary>
+        </member>
+        <member name="M:yumaster.Tools.AspNetCore.ResumeFileResults.ResumeFileResult.ResumeFileStreamResult.#ctor(System.IO.FileStream,System.String,System.String)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="fileStream">文件流</param>
+            <param name="contentType">Content-Type</param>
+            <param name="etag">ETag</param>
+        </member>
+        <member name="M:yumaster.Tools.AspNetCore.ResumeFileResults.ResumeFileResult.ResumeFileStreamResult.#ctor(System.IO.FileStream,Microsoft.Net.Http.Headers.MediaTypeHeaderValue,Microsoft.Net.Http.Headers.EntityTagHeaderValue)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="fileStream">文件流</param>
+            <param name="contentType">Content-Type</param>
+            <param name="etag">ETag</param>
+        </member>
+        <member name="P:yumaster.Tools.AspNetCore.ResumeFileResults.ResumeFileResult.ResumeFileStreamResult.FileInlineName">
+            <inheritdoc/>
+        </member>
+        <member name="M:yumaster.Tools.AspNetCore.ResumeFileResults.ResumeFileResult.ResumeFileStreamResult.ExecuteResultAsync(Microsoft.AspNetCore.Mvc.ActionContext)">
+            <inheritdoc/>
+        </member>
+        <member name="T:yumaster.Tools.AspNetCore.ResumeFileResults.ResumeFileResult.ResumePhysicalFileResult">
+            <summary>
+            基于本地物理路径的ResumePhysicalFileResult
+            </summary>
+        </member>
+        <member name="M:yumaster.Tools.AspNetCore.ResumeFileResults.ResumeFileResult.ResumePhysicalFileResult.#ctor(System.String,System.String,System.String)">
+            <summary>
+            基于本地物理路径的ResumePhysicalFileResult
+            </summary>
+            <param name="fileName">文件全路径</param>
+            <param name="contentType">Content-Type</param>
+            <param name="etag">ETag</param>
+        </member>
+        <member name="M:yumaster.Tools.AspNetCore.ResumeFileResults.ResumeFileResult.ResumePhysicalFileResult.#ctor(System.String,Microsoft.Net.Http.Headers.MediaTypeHeaderValue,Microsoft.Net.Http.Headers.EntityTagHeaderValue)">
+            <summary>
+            基于本地物理路径的ResumePhysicalFileResult
+            </summary>
+            <param name="fileName">文件全路径</param>
+            <param name="contentType">Content-Type</param>
+            <param name="etag">ETag</param>
+        </member>
+        <member name="P:yumaster.Tools.AspNetCore.ResumeFileResults.ResumeFileResult.ResumePhysicalFileResult.FileInlineName">
+            <inheritdoc/>
+        </member>
+        <member name="M:yumaster.Tools.AspNetCore.ResumeFileResults.ResumeFileResult.ResumePhysicalFileResult.ExecuteResultAsync(Microsoft.AspNetCore.Mvc.ActionContext)">
+            <inheritdoc/>
+        </member>
+        <member name="T:yumaster.Tools.AspNetCore.ResumeFileResults.ResumeFileResult.ResumeVirtualFileResult">
+            <summary>
+            基于服务器虚拟路径路径的ResumePhysicalFileResult
+            </summary>
+        </member>
+        <member name="M:yumaster.Tools.AspNetCore.ResumeFileResults.ResumeFileResult.ResumeVirtualFileResult.#ctor(System.String,System.String,System.String)">
+            <summary>
+            基于服务器虚拟路径路径的ResumePhysicalFileResult
+            </summary>
+            <param name="fileName">文件全路径</param>
+            <param name="contentType">Content-Type</param>
+            <param name="etag">ETag</param>
+        </member>
+        <member name="M:yumaster.Tools.AspNetCore.ResumeFileResults.ResumeFileResult.ResumeVirtualFileResult.#ctor(System.String,Microsoft.Net.Http.Headers.MediaTypeHeaderValue,Microsoft.Net.Http.Headers.EntityTagHeaderValue)">
+            <summary>
+            基于服务器虚拟路径路径的ResumePhysicalFileResult
+            </summary>
+            <param name="fileName">文件全路径</param>
+            <param name="contentType">Content-Type</param>
+            <param name="etag">ETag</param>
+        </member>
+        <member name="P:yumaster.Tools.AspNetCore.ResumeFileResults.ResumeFileResult.ResumeVirtualFileResult.FileInlineName">
+            <inheritdoc/>
+        </member>
+        <member name="M:yumaster.Tools.AspNetCore.ResumeFileResults.ResumeFileResult.ResumeVirtualFileResult.ExecuteResultAsync(Microsoft.AspNetCore.Mvc.ActionContext)">
+            <inheritdoc/>
+        </member>
+        <member name="T:yumaster.Tools.Files.ISevenZipCompressor">
+            <summary>
+            7z压缩
+            </summary>
+        </member>
+        <member name="M:yumaster.Tools.Files.ISevenZipCompressor.Decompress(System.String,System.String,System.Boolean)">
+            <summary>
+            解压文件，自动检测压缩包类型
+            </summary>
+            <param name="compressedFile">rar文件</param>
+            <param name="dir">解压到...</param>
+            <param name="ignoreEmptyDir">忽略空文件夹</param>
+        </member>
+        <member name="M:yumaster.Tools.Files.ISevenZipCompressor.Extract(System.String,System.String,System.Boolean)">
+            <summary>
+            解压文件，自动检测压缩包类型
+            </summary>
+            <param name="compressedFile">rar文件</param>
+            <param name="dir">解压到...</param>
+            <param name="ignoreEmptyDir">忽略空文件夹</param>
+        </member>
+        <member name="M:yumaster.Tools.Files.ISevenZipCompressor.UnRar(System.String,System.String,System.Boolean)">
+            <summary>
+            解压rar文件
+            </summary>
+            <param name="rar">rar文件</param>
+            <param name="dir">解压到...</param>
+            <param name="ignoreEmptyDir">忽略空文件夹</param>
+        </member>
+        <member name="M:yumaster.Tools.Files.ISevenZipCompressor.Zip(System.Collections.Generic.List{System.String},System.String,System.String)">
+            <summary>
+            压缩多个文件
+            </summary>
+            <param name="files">多个文件路径，文件或文件夹</param>
+            <param name="zipFile">压缩到...</param>
+            <param name="rootdir">压缩包内部根文件夹</param>
+        </member>
+        <member name="M:yumaster.Tools.Files.ISevenZipCompressor.ZipStream(System.Collections.Generic.List{System.String},System.String)">
+            <summary>
+            将多个文件压缩到一个文件流中，可保存为zip文件，方便于web方式下载
+            </summary>
+            <param name="files">多个文件路径，文件或文件夹，或网络路径http/https</param>
+            <param name="rootdir"></param>
+            <returns>文件流</returns>
+        </member>
+        <member name="T:yumaster.Tools.Files.SevenZipCompressor">
+            <summary>
+            7z压缩
+            </summary>
+        </member>
+        <member name="M:yumaster.Tools.Files.SevenZipCompressor.#ctor(System.Net.Http.IHttpClientFactory)">
+             <summary>
+            
+             </summary>
+             <param name="httpClientFactory"></param>
+        </member>
+        <member name="M:yumaster.Tools.Files.SevenZipCompressor.ZipStream(System.Collections.Generic.List{System.String},System.String)">
+            <summary>
+            将多个文件压缩到一个文件流中，可保存为zip文件，方便于web方式下载
+            </summary>
+            <param name="files">多个文件路径，文件或文件夹，或网络路径http/https</param>
+            <param name="rootdir"></param>
+            <returns>文件流</returns>
+        </member>
+        <member name="M:yumaster.Tools.Files.SevenZipCompressor.Zip(System.Collections.Generic.List{System.String},System.String,System.String)">
+            <summary>
+            压缩多个文件
+            </summary>
+            <param name="files">多个文件路径，文件或文件夹</param>
+            <param name="zipFile">压缩到...</param>
+            <param name="rootdir">压缩包内部根文件夹</param>
+        </member>
+        <member name="M:yumaster.Tools.Files.SevenZipCompressor.UnRar(System.String,System.String,System.Boolean)">
+            <summary>
+            解压rar文件
+            </summary>
+            <param name="rar">rar文件</param>
+            <param name="dir">解压到...</param>
+            <param name="ignoreEmptyDir">忽略空文件夹</param>
+        </member>
+        <member name="M:yumaster.Tools.Files.SevenZipCompressor.Extract(System.String,System.String,System.Boolean)">
+            <summary>
+            解压文件，自动检测压缩包类型
+            </summary>
+            <param name="compressedFile">rar文件</param>
+            <param name="dir">解压到...</param>
+            <param name="ignoreEmptyDir">忽略空文件夹</param>
+        </member>
+        <member name="M:yumaster.Tools.Files.SevenZipCompressor.Decompress(System.String,System.String,System.Boolean)">
+            <summary>
+            解压文件，自动检测压缩包类型
+            </summary>
+            <param name="compressedFile">rar文件</param>
+            <param name="dir">解压到...</param>
+            <param name="ignoreEmptyDir">忽略空文件夹</param>
+        </member>
+        <member name="M:yumaster.Tools.Files.SevenZipCompressor.CreateZipArchive(System.Collections.Generic.List{System.String},System.String)">
+            <summary>
+            创建zip包
+            </summary>
+            <param name="files"></param>
+            <param name="rootdir"></param>
+            <returns></returns>
+        </member>
+        <member name="M:yumaster.Tools.Files.SevenZipCompressor.GetFileEntryMaps(System.Collections.Generic.List{System.String})">
+            <summary>
+            获取文件路径和zip-entry的映射
+            </summary>
+            <param name="files"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

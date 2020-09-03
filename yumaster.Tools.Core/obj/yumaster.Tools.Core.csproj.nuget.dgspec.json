@@ -1,0 +1,370 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\vscode\\master\\Tools\\yumaster.Tools.Core\\yumaster.Tools.Core.csproj": {}
+  },
+  "projects": {
+    "D:\\vscode\\master\\Tools\\yumaster.Tools.Abstractions\\yumaster.Tools.Abstractions.csproj": {
+      "version": "2.3.1.1",
+      "restore": {
+        "projectUniqueName": "D:\\vscode\\master\\Tools\\yumaster.Tools.Abstractions\\yumaster.Tools.Abstractions.csproj",
+        "projectName": "yumaster.Tools.Abstractions",
+        "projectPath": "D:\\vscode\\master\\Tools\\yumaster.Tools.Abstractions\\yumaster.Tools.Abstractions.csproj",
+        "packagesPath": "C:\\Users\\yumas\\.nuget\\packages\\",
+        "outputPath": "D:\\vscode\\master\\Tools\\yumaster.Tools.Abstractions\\obj\\",
+        "projectStyle": "PackageReference",
+        "crossTargeting": true,
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\yumas\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net461",
+          "netstandard2.0",
+          "netstandard2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net461": {
+            "projectReferences": {}
+          },
+          "netstandard2.0": {
+            "projectReferences": {}
+          },
+          "netstandard2.1": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net461": {
+          "dependencies": {
+            "AngleSharp": {
+              "target": "Package",
+              "version": "[0.14.0, )"
+            },
+            "DnsClient": {
+              "target": "Package",
+              "version": "[1.3.2, )"
+            },
+            "HtmlAgilityPack": {
+              "target": "Package",
+              "version": "[1.11.24, )"
+            },
+            "HtmlSanitizer": {
+              "target": "Package",
+              "version": "[5.0.343, )"
+            },
+            "Microsoft.Win32.Registry": {
+              "target": "Package",
+              "version": "[4.7.0, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[12.0.3, )"
+            },
+            "System.Buffers": {
+              "target": "Package",
+              "version": "[4.5.1, )"
+            },
+            "System.ComponentModel.Annotations": {
+              "target": "Package",
+              "version": "[4.7.0, )"
+            },
+            "System.Configuration.ConfigurationManager": {
+              "target": "Package",
+              "version": "[4.7.0, )"
+            },
+            "System.Diagnostics.PerformanceCounter": {
+              "target": "Package",
+              "version": "[4.7.0, )"
+            },
+            "System.Drawing.Common": {
+              "target": "Package",
+              "version": "[4.7.0, )"
+            },
+            "System.Management": {
+              "target": "Package",
+              "version": "[4.7.0, )"
+            },
+            "System.Reflection.Emit": {
+              "target": "Package",
+              "version": "[4.7.0, )"
+            },
+            "System.Reflection.Emit.Lightweight": {
+              "target": "Package",
+              "version": "[4.7.0, )"
+            },
+            "System.Runtime.Numerics": {
+              "target": "Package",
+              "version": "[4.3.0, )"
+            },
+            "System.ValueTuple": {
+              "target": "Package",
+              "version": "[4.5.0, )"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
+        },
+        "netstandard2.0": {
+          "dependencies": {
+            "AngleSharp": {
+              "target": "Package",
+              "version": "[0.14.0, )"
+            },
+            "DnsClient": {
+              "target": "Package",
+              "version": "[1.3.2, )"
+            },
+            "HtmlAgilityPack": {
+              "target": "Package",
+              "version": "[1.11.24, )"
+            },
+            "HtmlSanitizer": {
+              "target": "Package",
+              "version": "[5.0.343, )"
+            },
+            "Microsoft.AspNetCore.Http.Abstractions": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.AspNetCore.Http.Extensions": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.Extensions.Configuration.Json": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.Win32.Registry": {
+              "target": "Package",
+              "version": "[4.7.0, )"
+            },
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[12.0.3, )"
+            },
+            "System.ComponentModel.Annotations": {
+              "target": "Package",
+              "version": "[4.7.0, )"
+            },
+            "System.Diagnostics.PerformanceCounter": {
+              "target": "Package",
+              "version": "[4.7.0, )"
+            },
+            "System.Drawing.Common": {
+              "target": "Package",
+              "version": "[4.5.0, )"
+            },
+            "System.Management": {
+              "target": "Package",
+              "version": "[4.7.0, )"
+            },
+            "System.Reflection.Emit": {
+              "target": "Package",
+              "version": "[4.7.0, )"
+            },
+            "System.Reflection.Emit.Lightweight": {
+              "target": "Package",
+              "version": "[4.7.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
+        },
+        "netstandard2.1": {
+          "dependencies": {
+            "AngleSharp": {
+              "target": "Package",
+              "version": "[0.14.0, )"
+            },
+            "DnsClient": {
+              "target": "Package",
+              "version": "[1.3.2, )"
+            },
+            "HtmlAgilityPack": {
+              "target": "Package",
+              "version": "[1.11.24, )"
+            },
+            "HtmlSanitizer": {
+              "target": "Package",
+              "version": "[5.0.343, )"
+            },
+            "Microsoft.AspNetCore.Http.Abstractions": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.AspNetCore.Http.Extensions": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.Extensions.Configuration.Json": {
+              "target": "Package",
+              "version": "[3.1.7, )"
+            },
+            "Microsoft.Win32.Registry": {
+              "target": "Package",
+              "version": "[4.7.0, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[12.0.3, )"
+            },
+            "System.ComponentModel.Annotations": {
+              "target": "Package",
+              "version": "[4.7.0, )"
+            },
+            "System.Diagnostics.PerformanceCounter": {
+              "target": "Package",
+              "version": "[4.7.0, )"
+            },
+            "System.Drawing.Common": {
+              "target": "Package",
+              "version": "[4.7.0, )"
+            },
+            "System.Management": {
+              "target": "Package",
+              "version": "[4.7.0, )"
+            },
+            "System.Reflection.Emit": {
+              "target": "Package",
+              "version": "[4.7.0, )"
+            },
+            "System.Reflection.Emit.Lightweight": {
+              "target": "Package",
+              "version": "[4.7.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "NETStandard.Library": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\vscode\\master\\Tools\\yumaster.Tools.Core\\yumaster.Tools.Core.csproj": {
+      "version": "2.3.1.1",
+      "restore": {
+        "projectUniqueName": "D:\\vscode\\master\\Tools\\yumaster.Tools.Core\\yumaster.Tools.Core.csproj",
+        "projectName": "yumaster.Tools.Core",
+        "projectPath": "D:\\vscode\\master\\Tools\\yumaster.Tools.Core\\yumaster.Tools.Core.csproj",
+        "packagesPath": "C:\\Users\\yumas\\.nuget\\packages\\",
+        "outputPath": "D:\\vscode\\master\\Tools\\yumaster.Tools.Core\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\yumas\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.1": {
+            "projectReferences": {
+              "D:\\vscode\\master\\Tools\\yumaster.Tools.Abstractions\\yumaster.Tools.Abstractions.csproj": {
+                "projectPath": "D:\\vscode\\master\\Tools\\yumaster.Tools.Abstractions\\yumaster.Tools.Abstractions.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.1": {
+          "dependencies": {
+            "Microsoft.AspNetCore.Mvc": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.7, )"
+            },
+            "Microsoft.Extensions.Http": {
+              "target": "Package",
+              "version": "[3.1.7, )"
+            },
+            "Microsoft.SourceLink.GitHub": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.0.0, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[12.0.3, )"
+            },
+            "SharpCompress": {
+              "target": "Package",
+              "version": "[0.26.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "NETStandard.Library": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

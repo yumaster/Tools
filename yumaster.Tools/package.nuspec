@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<package>
+  <metadata>
+    <!--*-->
+    <id>yumaster.Tools.Net</id>
+    <!--*-->
+    <version>2.3.1.1</version>
+    <title>yumaster.Tools</title>
+    <!--*-->
+    <authors>yumaster.net</authors>
+    <owners>yumaster.net</owners>
+    <licenseUrl>https://github.com/yumaster/yumaster.Tools/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/yumaster/yumaster.Tools</projectUrl>
+    <!--<iconUrl></iconUrl>-->
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <!--*-->
+    <description>
+      包含一些常用的操作类，大都是静态类，加密解密，反射操作，硬件信息，字符串扩展方法，日期时间扩展操作，大文件拷贝，图像裁剪，html处理，验证码、NoSql等常用封装。
+      官网教程：https://yumaster.net/55
+      github：https://github.com/yumaster/yumaster.Tools</description>
+    <!--*-->
+    <releaseNotes>如有问题请联系作者QQ:346566958，或者到项目的github反馈问题，详细的API文档在github上:https://github.com/yumaster/yumaster.Tools</releaseNotes>
+    <copyright>Copyright ©  大雨科技</copyright>
+    <tags>Tools</tags>
+    <dependencies>
+      <dependency id="yumaster.Tools.Abstractions" version="2.3.1.1" />
+    </dependencies>
+  </metadata>
+</package>

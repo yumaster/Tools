@@ -1,0 +1,1374 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>yumaster.Tools</name>
+    </assembly>
+    <members>
+        <member name="T:yumaster.Tools.Files.SevenZipCompressor">
+            <summary>
+            7z压缩
+            </summary>
+        </member>
+        <member name="M:yumaster.Tools.Files.SevenZipCompressor.ZipStream(System.Collections.Generic.List{System.String},System.String)">
+            <summary>
+            将多个文件压缩到一个内存流中，可保存为zip文件，方便于web方式下载
+            </summary>
+            <param name="files">多个文件路径，文件或文件夹，或网络路径http/https</param>
+            <param name="rootdir"></param>
+            <returns>文件流</returns>
+        </member>
+        <member name="M:yumaster.Tools.Files.SevenZipCompressor.Zip(System.Collections.Generic.List{System.String},System.String,System.String)">
+            <summary>
+            压缩多个文件
+            </summary>
+            <param name="files">多个文件路径，文件或文件夹</param>
+            <param name="zipFile">压缩到...</param>
+            <param name="rootdir">压缩包内部根文件夹</param>
+        </member>
+        <member name="M:yumaster.Tools.Files.SevenZipCompressor.UnRar(System.String,System.String,System.Boolean)">
+            <summary>
+            解压rar文件
+            </summary>
+            <param name="rar">rar文件</param>
+            <param name="dir">解压到...</param>
+            <param name="ignoreEmptyDir">忽略空文件夹</param>
+        </member>
+        <member name="M:yumaster.Tools.Files.SevenZipCompressor.Extract(System.String,System.String,System.Boolean)">
+            <summary>
+            解压文件，自动检测压缩包类型
+            </summary>
+            <param name="compressedFile">rar文件</param>
+            <param name="dir">解压到...</param>
+            <param name="ignoreEmptyDir">忽略空文件夹</param>
+        </member>
+        <member name="M:yumaster.Tools.Files.SevenZipCompressor.Decompress(System.String,System.String,System.Boolean)">
+            <summary>
+            解压文件，自动检测压缩包类型
+            </summary>
+            <param name="compressedFile">rar文件</param>
+            <param name="dir">解压到...</param>
+            <param name="ignoreEmptyDir">忽略空文件夹</param>
+        </member>
+        <member name="M:yumaster.Tools.Files.SevenZipCompressor.CreateZipArchive(System.Collections.Generic.List{System.String},System.String)">
+            <summary>
+            创建zip包
+            </summary>
+            <param name="files"></param>
+            <param name="rootdir"></param>
+            <returns></returns>
+        </member>
+        <member name="M:yumaster.Tools.Files.SevenZipCompressor.GetFileEntryMaps(System.Collections.Generic.List{System.String})">
+            <summary>
+            获取文件路径和zip-entry的映射
+            </summary>
+            <param name="files"></param>
+            <returns></returns>
+        </member>
+        <member name="T:yumaster.Tools.Files.ExtensionAttach">
+            <summary>
+            文件关联
+            </summary>
+        </member>
+        <member name="M:yumaster.Tools.Files.ExtensionAttach.SaveReg(System.String,System.String)">
+            <summary>
+            关联文件
+            </summary>
+            <param name="filePathString">应用程序路径</param>
+            <param name="pFileTypeName">文件类型</param>
+        </member>
+        <member name="M:yumaster.Tools.Files.ExtensionAttach.DelReg(System.String)">
+            <summary>
+            取消文件关联
+            </summary>
+            <param name="pFileTypeName">文件类型</param>
+        </member>
+        <member name="T:yumaster.Tools.Mvc.ActionResults.ResumeFileResult">
+            <summary>
+            扩展自带的FilePathResult来支持断点续传
+            </summary>
+        </member>
+        <member name="F:yumaster.Tools.Mvc.ActionResults.ResumeFileResult.LogException">
+            <summary>
+            由于附加依赖性，所以没使用logger.Log4net。
+            </summary>
+        </member>
+        <member name="M:yumaster.Tools.Mvc.ActionResults.ResumeFileResult.WriteFile(System.Web.HttpResponseBase)">
+            <summary>
+            检查请求中的标头，为响应添加适当的标头
+            </summary>
+            <param name="response"></param>
+        </member>
+        <member name="M:yumaster.Tools.Mvc.ActionResults.ResumeFileResult.ContentLength">
+            <summary>
+            计算要写入Response的总字节长度
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:yumaster.Tools.Mvc.ActionResults.ResumeFileResult.SendRange">
+            <summary>
+            分析If-Range标头并返回：
+                true - 如果必须发送部分内容
+                false - 如果必须发送整个文件
+            spec: http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.27
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:yumaster.Tools.Mvc.ActionResults.ResumeFileResult.TransmitFile(System.Web.HttpResponseBase)">
+            <summary>
+            将文件写入响应流，根据请求标头和文件属性添加正确的标头
+            </summary>
+            <param name="response"></param>
+        </member>
+        <member name="M:yumaster.Tools.Mvc.ActionResults.ResumeFileResult.IsRangeNotSatisfiable">
+            <summary>
+            在以下情况下，范围不可满足：
+            起点大于文件的总大小
+            起点小于0
+            端点等于或大于文件的大小
+            起点大于终点
+            spec: http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.17
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:yumaster.Tools.Mvc.ActionResults.ResumeFileResult.IsPreconditionFailed">
+            <summary>
+            在以下情况下，前提可能会失败
+            如果匹配（http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.24）
+                标题为空，与etag不匹配
+            如果未经修改则（http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.28）
+                header不为空，与File.LastWriteTime不匹配。
+                在下载过程中更改文件时可能会发生这种情况。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:yumaster.Tools.Mvc.ActionResults.ResumeFileResult.IsNotModified">
+            <summary>
+            如果有的话，该方法返回true
+            如果 - 无匹配（http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.26）或
+            或者如果未经修改则（http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.25）
+            已验证
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:yumaster.Tools.Mvc.ActionResults.ResumeFileResult.Etag">
+            <summary>
+            当前文件的Etag响应头
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:yumaster.Tools.Mvc.ActionResults.ResumeFileResult.Range(System.String)">
+            <summary>
+            根据Range标头计算起点和终点
+            Spec: http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35.1
+            </summary>
+            <param name="range"></param>
+            <returns></returns>
+        </member>
+        <member name="T:yumaster.Tools.Mvc.ActionResults.ResumeFileResult.Util">
+            <summary>
+            用于支持ResumeFileResult功能的帮助类
+            </summary>
+        </member>
+        <member name="M:yumaster.Tools.Mvc.ActionResults.ResumeFileResult.Util.Etag(System.IO.FileInfo)">
+            <summary>
+            Etag响应头
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:yumaster.Tools.Mvc.ActionResults.ResumeFileResult.Util.Etag(System.String,System.String)">
+            <summary>
+            <see cref="M:yumaster.Tools.Mvc.ActionResults.ResumeFileResult.Util.Etag(System.IO.FileInfo)"/>
+            </summary>
+            <param name="fullName"></param>
+            <param name="lastModified"></param>
+            <returns></returns>
+        </member>
+        <member name="M:yumaster.Tools.Mvc.ActionResults.ResumeFileResult.Util.Etag(System.String,System.DateTime)">
+            <summary>
+            <see cref="M:yumaster.Tools.Mvc.ActionResults.ResumeFileResult.Util.Etag(System.IO.FileInfo)"/>
+            </summary>
+            <param name="fullName"></param>
+            <param name="lastWriteTime"></param>
+            <returns></returns>
+        </member>
+        <member name="M:yumaster.Tools.Mvc.ControllerExtension.ResumeFile(System.Web.Mvc.ControllerBase,System.String)">
+            <summary>
+            可断点续传和多线程下载的FileResult
+            </summary>
+            <param name="controller"></param>
+            <param name="virtualPath">服务端本地文件的虚拟路径</param>
+            <returns></returns>
+        </member>
+        <member name="M:yumaster.Tools.Mvc.ControllerExtension.ResumeFile(System.Web.Mvc.ControllerBase,System.String,System.String)">
+            <summary>
+            可断点续传和多线程下载的FileResult
+            </summary>
+            <param name="controller"></param>
+            <param name="virtualPath">服务端本地文件的虚拟路径</param>
+            <param name="fileDownloadName">下载的文件名</param>
+            <returns></returns>
+        </member>
+        <member name="M:yumaster.Tools.Mvc.ControllerExtension.ResumeFile(System.Web.Mvc.ControllerBase,System.String,System.String,System.String)">
+            <summary>
+            可断点续传和多线程下载的FileResult
+            </summary>
+            <param name="controller"></param>
+            <param name="virtualPath">服务端本地文件的虚拟路径</param>
+            <param name="fileDownloadName">下载的文件名</param>
+            <param name="etag">ETag</param>
+            <returns></returns>
+        </member>
+        <member name="M:yumaster.Tools.Mvc.ControllerExtension.ResumeFile(System.Web.Mvc.ControllerBase,System.IO.FileStream,System.String)">
+            <summary>
+            可断点续传和多线程下载的FileResult
+            </summary>
+            <param name="controller"></param>
+            <param name="fileStream">文件流</param>
+            <param name="fileDownloadName">下载的文件名</param>
+            <returns></returns>
+        </member>
+        <member name="M:yumaster.Tools.Mvc.ControllerExtension.ResumeFile(System.Web.Mvc.ControllerBase,System.IO.FileStream,System.String,System.String)">
+            <summary>
+            可断点续传和多线程下载的FileResult
+            </summary>
+            <param name="controller"></param>
+            <param name="fileStream">文件流</param>
+            <param name="fileDownloadName">下载的文件名</param>
+            <param name="etag">ETag</param>
+            <returns></returns>
+        </member>
+        <member name="M:yumaster.Tools.Mvc.ControllerExtension.ResumeFile(System.Web.Mvc.ControllerBase,System.Byte[],System.String)">
+            <summary>
+            可断点续传和多线程下载的FileResult
+            </summary>
+            <param name="controller"></param>
+            <param name="bytes">文件流</param>
+            <param name="fileDownloadName">下载的文件名</param>
+            <returns></returns>
+        </member>
+        <member name="M:yumaster.Tools.Mvc.ControllerExtension.ResumeFile(System.Web.Mvc.ControllerBase,System.Byte[],System.String,System.String)">
+            <summary>
+            可断点续传和多线程下载的FileResult
+            </summary>
+            <param name="controller"></param>
+            <param name="bytes">文件流</param>
+            <param name="fileDownloadName">下载的文件名</param>
+            <param name="etag">ETag</param>
+            <returns></returns>
+        </member>
+        <member name="M:yumaster.Tools.Mvc.ControllerExtension.ResumePhysicalFile(System.Web.Mvc.ControllerBase,System.String)">
+            <summary>
+            可断点续传和多线程下载的FileResult
+            </summary>
+            <param name="controller"></param>
+            <param name="physicalPath">服务端本地文件的物理路径</param>
+            <returns></returns>
+        </member>
+        <member name="M:yumaster.Tools.Mvc.ControllerExtension.ResumePhysicalFile(System.Web.Mvc.ControllerBase,System.String,System.String)">
+            <summary>
+            可断点续传和多线程下载的FileResult
+            </summary>
+            <param name="controller"></param>
+            <param name="physicalPath">服务端本地文件的物理路径</param>
+            <param name="fileDownloadName">下载的文件名</param>
+            <returns></returns>
+        </member>
+        <member name="M:yumaster.Tools.Mvc.ControllerExtension.ResumePhysicalFile(System.Web.Mvc.ControllerBase,System.String,System.String,System.String)">
+            <summary>
+            可断点续传和多线程下载的FileResult
+            </summary>
+            <param name="controller"></param>
+            <param name="physicalPath">服务端本地文件的物理路径</param>
+            <param name="fileDownloadName">下载的文件名</param>
+            <param name="etag">ETag</param>
+            <returns></returns>
+        </member>
+        <member name="T:yumaster.Tools.Mvc.Mime.ContentType">
+            <summary>
+            默认MIME映射器，可以根据文件扩展名获取标准内容类型。
+            </summary>
+        </member>
+        <member name="F:yumaster.Tools.Mvc.Mime.ContentType.DefaultMime">
+            <summary>
+            默认Mime  - 如果没有找到任何其他映射则作为默认的Mime-Type
+            </summary>
+        </member>
+        <member name="T:yumaster.Tools.Mvc.Mime.MimeMapper">
+            <summary>
+            默认MIME映射器，可以根据文件扩展名获取标准内容类型。
+            </summary>
+        </member>
+        <member name="F:yumaster.Tools.Mvc.Mime.MimeMapper.DefaultMime">
+            <summary>
+            默认Mime  - 如果没有找到任何其他映射则作为默认的Mime-Type
+            </summary>
+        </member>
+        <member name="F:yumaster.Tools.Mvc.Mime.MimeMapper._pathExtensionPattern">
+            <summary>
+            在文件路径中搜索文件扩展名的默认正则表达式
+            </summary>
+        </member>
+        <member name="F:yumaster.Tools.Mvc.Mime.MimeMapper._items">
+            <summary>
+            扩展的Mime类型的默认字典(Content types)
+            </summary>
+        </member>
+        <member name="M:yumaster.Tools.Mvc.Mime.MimeMapper.Extend(yumaster.Tools.Mvc.Mime.MimeMappingItem[])">
+            <summary>
+            扩展mime映射规则的标准列表。扩展的具有更高的优先级 - 如果扩展具有与标准项相同的扩展名，则会覆盖默认的mime
+            </summary>
+            <param name="extensions"></param>
+            <returns></returns>
+        </member>
+        <member name="M:yumaster.Tools.Mvc.Mime.MimeMapper.GetMimeFromExtension(System.String)">
+            <summary>
+            返回特定文件扩展名的Content-Type，如果未找到任何对应关系，则返回默认值
+            </summary>
+            <param name="fileExtension"></param>
+            <returns></returns>
+        </member>
+        <member name="M:yumaster.Tools.Mvc.Mime.MimeMapper.GetMimeFromPath(System.String)">
+            <summary>
+            </summary>
+            <param name="path"></param>
+            <returns></returns>
+        </member>
+        <member name="T:yumaster.Tools.Net.CacheHelper">
+            <summary>
+            全局统一的缓存类
+            </summary>
+        </member>
+        <member name="M:yumaster.Tools.Net.CacheHelper.GetCache``1(System.Web.Caching.Cache,System.String)">
+            <summary>
+            获取数据缓存
+            </summary>
+            <typeparam name="T">返回的类型</typeparam>
+            <param name="cache"></param>
+            <param name="cacheKey">键</param>
+        </member>
+        <member name="M:yumaster.Tools.Net.CacheHelper.SetCache(System.Web.Caching.Cache,System.String,System.Object)">
+            <summary>
+            设置数据缓存
+            </summary>
+            <param name="cache"></param>
+            <param name="cacheKey">键</param>
+            <param name="objObject">值</param>
+        </member>
+        <member name="M:yumaster.Tools.Net.CacheHelper.SetCache(System.Web.Caching.Cache,System.String,System.Object,System.TimeSpan)">
+            <summary>
+            设置数据缓存
+            </summary>
+            <param name="cache"></param>
+            <param name="cacheKey">键</param>
+            <param name="objObject">值</param>
+            <param name="timeout">过期时间</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="cacheKey"/>"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:yumaster.Tools.Net.CacheHelper.SetCache(System.Web.Caching.Cache,System.String,System.Object,System.DateTime,System.TimeSpan)">
+            <summary>
+            设置当前应用程序指定CacheKey的Cache值
+            </summary>
+            <param name="cache"></param>
+            <param name="cacheKey">键</param>
+            <param name="objObject">值</param>
+            <param name="absoluteExpiration">绝对过期时间</param>
+            <param name="slidingExpiration">滑动过期时间</param>
+        </member>
+        <member name="M:yumaster.Tools.Net.CacheHelper.RemoveAllCache(System.Web.Caching.Cache,System.String)">
+            <summary>
+            移除指定数据缓存
+            </summary>
+            <param name="cache"></param>
+            <param name="cacheKey">键</param>
+        </member>
+        <member name="M:yumaster.Tools.Net.CacheHelper.RemoveAllCache(System.Web.Caching.Cache)">
+            <summary>
+            移除全部缓存
+            </summary>
+        </member>
+        <member name="M:yumaster.Tools.Net.CacheHelper.Add(System.String,System.Object)">
+            <summary>
+            添加缓存数据
+            </summary>
+            <param name="key">键</param>
+            <param name="value">值</param>
+        </member>
+        <member name="P:yumaster.Tools.Net.CacheHelper.Instance">
+            <summary>
+            缓存实例
+            </summary>
+        </member>
+        <member name="T:yumaster.Tools.Net.CookieHelper">
+            <summary>
+             Cookie操作辅助类
+            </summary>
+        </member>
+        <member name="M:yumaster.Tools.Net.CookieHelper.Clear(System.String)">
+            <summary>
+            清除指定Cookie
+            </summary>
+            <param name="cookiename">cookiename</param>
+        </member>
+        <member name="M:yumaster.Tools.Net.CookieHelper.ClearAll">
+            <summary>
+            删除所有cookie值
+            </summary>
+        </member>
+        <member name="M:yumaster.Tools.Net.CookieHelper.GetCookieValue(System.String)">
+            <summary>
+            获取指定Cookie值
+            </summary>
+            <param name="cookiename">cookiename</param>
+            <returns>Cookie值</returns>
+        </member>
+        <member name="M:yumaster.Tools.Net.CookieHelper.SetCookie(System.String,System.String,System.DateTime)">
+            <summary>
+            添加一个Cookie
+            </summary>
+            <param name="cookiename">cookie名</param>
+            <param name="cookievalue">cookie值</param>
+            <param name="expires">过期时间 DateTime</param>
+        </member>
+        <member name="T:yumaster.Tools.Net.WebExtension">
+            <summary>
+            Web操作扩展
+            </summary>
+        </member>
+        <member name="M:yumaster.Tools.Net.WebExtension.GetDbContext``1">
+            <summary>
+            获取线程内唯一的EF上下文对象
+            </summary>
+            <typeparam name="T">EF上下文容器对象</typeparam>
+            <returns>EF上下文容器对象</returns>
+        </member>
+        <member name="M:yumaster.Tools.Net.WebExtension.Set(System.Web.HttpSessionStateBase,System.String,System.Object)">
+            <summary>
+            写Session
+            </summary>
+            <param name="session"></param>
+            <param name="key">键</param>
+            <param name="value">值</param>
+        </member>
+        <member name="M:yumaster.Tools.Net.WebExtension.Set(System.Web.SessionState.HttpSessionState,System.String,System.Object)">
+            <summary>
+            写Session
+            </summary>
+            <param name="session"></param>
+            <param name="key">键</param>
+            <param name="value">值</param>
+        </member>
+        <member name="M:yumaster.Tools.Net.WebExtension.SetByRedis``1(System.Web.SessionState.HttpSessionState,System.String,``0,System.Int32)">
+            <summary>
+            将Session存到Redis，需要先在config中配置链接字符串，连接字符串在config配置文件中的ConnectionStrings节下配置，name固定为RedisHosts，值的格式：127.0.0.1:6379,allowadmin=true，若未正确配置，将按默认值“127.0.0.1:6379,allowadmin=true”进行操作，如：<br/>
+            &lt;connectionStrings&gt;<br/>
+                 &lt;add name = "RedisHosts" connectionString="127.0.0.1:6379,allowadmin=true"/&gt;<br/>
+            &lt;/connectionStrings&gt;
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="session"></param>
+            <param name="key">键</param>
+            <param name="obj">需要存的对象</param>
+            <param name="expire">过期时间，默认20分钟</param>
+            <returns></returns>
+        </member>
+        <member name="M:yumaster.Tools.Net.WebExtension.SetByRedis``1(System.Web.HttpSessionStateBase,System.String,``0,System.Int32)">
+            <summary>
+            将Session存到Redis，需要先在config中配置链接字符串，连接字符串在config配置文件中的ConnectionStrings节下配置，name固定为RedisHosts，值的格式：127.0.0.1:6379,allowadmin=true，若未正确配置，将按默认值“127.0.0.1:6379,allowadmin=true”进行操作，如：<br/>
+            &lt;connectionStrings&gt;<br/>
+                 &lt;add name = "RedisHosts" connectionString="127.0.0.1:6379,allowadmin=true"/&gt;<br/>
+            &lt;/connectionStrings&gt;
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="session"></param>
+            <param name="key">键</param>
+            <param name="obj">需要存的对象</param>
+            <param name="expire">过期时间，默认20分钟</param>
+            <returns></returns> 
+        </member>
+        <member name="M:yumaster.Tools.Net.WebExtension.Get``1(System.Web.HttpSessionStateBase,System.String)">
+            <summary>
+            获取Session
+            </summary>
+            <typeparam name="T">对象</typeparam>
+            <param name="session"></param>
+            <param name="key">键</param>
+            <returns>对象</returns>
+        </member>
+        <member name="M:yumaster.Tools.Net.WebExtension.Get``1(System.Web.SessionState.HttpSessionState,System.String)">
+            <summary>
+            获取Session
+            </summary>
+            <typeparam name="T">对象</typeparam>
+            <param name="session"></param>
+            <param name="key">键</param>
+            <returns>对象</returns>
+        </member>
+        <member name="M:yumaster.Tools.Net.WebExtension.GetByRedis``1(System.Web.SessionState.HttpSessionState,System.String,System.Int32)">
+            <summary>
+            从Redis取Session
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="_"></param>
+            <param name="key">键</param>
+            <param name="expire">过期时间，默认20分钟</param>
+            <returns></returns> 
+        </member>
+        <member name="M:yumaster.Tools.Net.WebExtension.GetByRedis``1(System.Web.HttpSessionStateBase,System.String,System.Int32)">
+            <summary>
+            从Redis取Session
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="_"></param>
+            <param name="key">键</param>
+            <param name="expire">过期时间，默认20分钟</param>
+            <returns></returns>
+        </member>
+        <member name="M:yumaster.Tools.Net.WebExtension.RemoveByRedis(System.Web.HttpSessionStateBase,System.String)">
+            <summary>
+            从Redis移除对应键的Session
+            </summary>
+            <param name="_"></param>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:yumaster.Tools.Net.WebExtension.RemoveByRedis(System.Web.SessionState.HttpSessionState,System.String)">
+            <summary>
+            从Redis移除对应键的Session
+            </summary>
+            <param name="_"></param>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:yumaster.Tools.Net.WebExtension.SessionCount(System.Web.SessionState.HttpSessionState)">
+            <summary>
+            Session个数
+            </summary>
+            <param name="session"></param>
+            <returns></returns>
+        </member>
+        <member name="M:yumaster.Tools.Net.WebExtension.SessionCount(System.Web.HttpSessionStateBase)">
+            <summary>
+            Session个数
+            </summary>
+            <param name="session"></param>
+            <returns></returns>
+        </member>
+        <member name="M:yumaster.Tools.Net.WebExtension.GetIPAddressInfo(System.String)">
+            <summary>
+            根据IP地址获取详细地理信息
+            </summary>
+            <param name="ip"></param>
+            <returns></returns>
+        </member>
+        <member name="M:yumaster.Tools.Net.WebExtension.GetPhysicsAddressInfo(System.String)">
+            <summary>
+            根据IP地址获取详细地理信息对象
+            </summary>
+            <param name="ip"></param>
+            <returns></returns>
+        </member>
+        <member name="M:yumaster.Tools.Net.WebExtension.GetISP(System.String)">
+            <summary>
+            根据IP地址获取ISP
+            </summary>
+            <param name="ip"></param>
+            <returns></returns>
+        </member>
+        <member name="T:yumaster.Tools.NoSQL.RedisConnectionManager">
+            <summary>
+            ConnectionMultiplexer对象管理帮助类
+            </summary>
+        </member>
+        <member name="F:yumaster.Tools.NoSQL.RedisConnectionManager.RedisConnectionString">
+            <summary>
+            Redis服务器连接字符串，在config配置文件中的ConnectionStrings节下配置，name固定为RedisHosts，值的格式：127.0.0.1:6379,allowadmin=true，如：<br/>
+            &lt;connectionStrings&gt;<br/>
+                 &lt;add name = "RedisHosts" connectionString="127.0.0.1:6379,allowadmin=true"/&gt;<br/>
+            &lt;/connectionStrings&gt;
+            </summary>
+        </member>
+        <member name="P:yumaster.Tools.NoSQL.RedisConnectionManager.Instance">
+            <summary>
+            对象池获取线程内唯一对象
+            </summary>
+        </member>
+        <member name="M:yumaster.Tools.NoSQL.RedisConnectionManager.GetConnectionMultiplexer(System.String)">
+            <summary>
+            缓存获取
+            </summary>
+            <param name="connectionString">连接字符串</param>
+            <returns>连接对象</returns>
+        </member>
+        <member name="T:yumaster.Tools.NoSQL.RedisHelper">
+            <summary>
+            Redis操作
+            </summary>
+        </member>
+        <member name="F:yumaster.Tools.NoSQL.RedisHelper.CustomKey">
+            <summary>
+            自定义键
+            </summary>
+        </member>
+        <member name="E:yumaster.Tools.NoSQL.RedisHelper.ConnectionFailed">
+            <summary>
+            连接失败 ， 如果重新连接成功你将不会收到这个通知
+            </summary>
+        </member>
+        <member name="E:yumaster.Tools.NoSQL.RedisHelper.ConnectionRestored">
+            <summary>
+            重新建立连接之前的错误
+            </summary>
+        </member>
+        <member name="E:yumaster.Tools.NoSQL.RedisHelper.ErrorMessage">
+            <summary>
+            发生错误时
+            </summary>
+        </member>
+        <member name="E:yumaster.Tools.NoSQL.RedisHelper.ConfigurationChanged">
+            <summary>
+            配置更改时
+            </summary>
+        </member>
+        <member name="E:yumaster.Tools.NoSQL.RedisHelper.HashSlotMoved">
+            <summary>
+            更改集群时
+            </summary>
+        </member>
+        <member name="E:yumaster.Tools.NoSQL.RedisHelper.InternalError">
+            <summary>
+            redis类库错误时
+            </summary>
+        </member>
+        <member name="P:yumaster.Tools.NoSQL.RedisHelper.ConnectionCache">
+            <summary>
+            静态连接池
+            </summary>
+        </member>
+        <member name="M:yumaster.Tools.NoSQL.RedisHelper.#ctor(System.Int32)">
+            <summary>
+            构造函数，使用该构造函数需要先在config中配置链接字符串，连接字符串在config配置文件中的ConnectionStrings节下配置，name固定为RedisHosts，值的格式：127.0.0.1:6379,allowadmin=true，若未正确配置，将按默认值“127.0.0.1:6379,allowadmin=true,abortConnect=false”进行操作，如：<br/>
+            &lt;connectionStrings&gt;<br/>
+                 &lt;add name = "RedisHosts" connectionString="127.0.0.1:6379,allowadmin=true,abortConnect=false"/&gt;<br/>
+            &lt;/connectionStrings&gt;
+            </summary>
+            <param name="dbNum">数据库编号</param>
+        </member>
+        <member name="M:yumaster.Tools.NoSQL.RedisHelper.#ctor(System.String,System.Int32)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="readWriteHosts">Redis服务器连接字符串，格式：127.0.0.1:6379,allowadmin=true,abortConnect=false</param>
+            <param name="dbNum">数据库的编号</param>
+        </member>
+        <member name="M:yumaster.Tools.NoSQL.RedisHelper.#ctor(System.String,System.Int32,System.Int32)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="readWriteHosts">Redis服务器连接字符串，格式：127.0.0.1:6379,allowadmin=true,abortConnect=false</param>
+            <param name="dbNum">数据库的编号</param>
+            <param name="_"></param>
+        </member>
+        <member name="M:yumaster.Tools.NoSQL.RedisHelper.GetInstance(System.Int32)">
+            <summary>
+            获取新实例
+            </summary>
+            <param name="db">数据库的编号</param>
+            <returns></returns>
+        </member>
+        <member name="M:yumaster.Tools.NoSQL.RedisHelper.GetSingleInstance(System.Int32)">
+            <summary>
+            获取单例
+            </summary>
+            <param name="db">数据库的编号</param>
+            <returns></returns>
+        </member>
+        <member name="M:yumaster.Tools.NoSQL.RedisHelper.GetInstance(System.String,System.Int32)">
+            <summary>
+            从对象池获取默认实例
+            </summary>
+            <param name="conn">Redis服务器连接字符串，格式：127.0.0.1:6379,allowadmin=true,abortConnect=false</param>
+            <param name="db">数据库的编号</param>
+            <returns></returns>
+        </member>
+        <member name="M:yumaster.Tools.NoSQL.RedisHelper.GetSingleInstance(System.String,System.Int32)">
+            <summary>
+            获取单例
+            </summary>
+            <param name="conn">Redis服务器连接字符串，格式：127.0.0.1:6379,allowadmin=true,abortConnect=false</param>
+            <param name="db">数据库的编号</param>
+            <returns></returns>
+        </member>
+        <member name="M:yumaster.Tools.NoSQL.RedisHelper.SetString(System.String,System.String,System.Nullable{System.TimeSpan})">
+            <summary>
+            保存单个key value
+            </summary>
+            <param name="key">Redis Key</param>
+            <param name="value">保存的值</param>
+            <param name="expiry">过期时间</param>
+            <returns>是否保存成功</returns>
+        </member>
+        <member name="M:yumaster.Tools.NoSQL.RedisHelper.SetString(System.Collections.Generic.List{System.Collections.Generic.KeyValuePair{StackExchange.Redis.RedisKey,StackExchange.Redis.RedisValue}})">
+            <summary>
+            保存多个key value
+            </summary>
+            <param name="keyValues">键值对</param>
+            <returns>是否保存成功</returns>
+        </member>
+        <member name="M:yumaster.Tools.NoSQL.RedisHelper.SetString``1(System.String,``0,System.Nullable{System.TimeSpan})">
+            <summary>
+            保存一个对象
+            </summary>
+            <typeparam name="T">对象类型</typeparam>
+            <param name="key">键</param>
+            <param name="obj">值</param>
+            <param name="expiry">过期时间</param>
+            <returns>是否保存成功</returns>
+        </member>
+        <member name="M:yumaster.Tools.NoSQL.RedisHelper.GetString(System.String)">
+            <summary>
+            获取单个key的值
+            </summary>
+            <param name="key">键</param>
+            <returns>值</returns>
+        </member>
+        <member name="M:yumaster.Tools.NoSQL.RedisHelper.GetString(System.Collections.Generic.List{System.String})">
+            <summary>
+            获取多个Key
+            </summary>
+            <param name="listKey">键集合</param>
+            <returns>值集合</returns>
+        </member>
+        <member name="M:yumaster.Tools.NoSQL.RedisHelper.GetString``1(System.String)">
+            <summary>
+            获取一个key的对象
+            </summary>
+            <typeparam name="T">数据类型</typeparam>
+            <param name="key">键</param>
+            <returns>实例对象</returns>
+        </member>
+        <member name="M:yumaster.Tools.NoSQL.RedisHelper.StringIncrement(System.String,System.Double)">
+            <summary>
+            为数字增长val
+            </summary>
+            <param name="key">键</param>
+            <param name="val">可以为负</param>
+            <returns>增长后的值</returns>
+        </member>
+        <member name="M:yumaster.Tools.NoSQL.RedisHelper.StringDecrement(System.String,System.Double)">
+            <summary>
+            为数字减少val
+            </summary>
+            <param name="key">键</param>
+            <param name="val">可以为负</param>
+            <returns>减少后的值</returns>
+        </member>
+        <member name="M:yumaster.Tools.NoSQL.RedisHelper.SetStringAsync(System.String,System.String,System.Nullable{System.TimeSpan})">
+            <summary>
+            保存单个key value
+            </summary>
+            <param name="key">Redis Key</param>
+            <param name="value">保存的值</param>
+            <param name="expiry">过期时间</param>
+            <returns>是否保存成功</returns>
+        </member>
+        <member name="M:yumaster.Tools.NoSQL.RedisHelper.SetStringAsync(System.Collections.Generic.List{System.Collections.Generic.KeyValuePair{StackExchange.Redis.RedisKey,StackExchange.Redis.RedisValue}})">
+            <summary>
+            保存多个key value
+            </summary>
+            <param name="keyValues">键值对</param>
+            <returns>是否保存成功</returns>
+        </member>
+        <member name="M:yumaster.Tools.NoSQL.RedisHelper.SetStringAsync``1(System.String,``0,System.Nullable{System.TimeSpan})">
+            <summary>
+            保存一个对象
+            </summary>
+            <typeparam name="T">数据类型</typeparam>
+            <param name="key">键</param>
+            <param name="obj">需要被缓存的对象</param>
+            <param name="expiry">过期时间</param>
+            <returns>是否保存成功</returns>
+        </member>
+        <member name="M:yumaster.Tools.NoSQL.RedisHelper.GetStringAsync(System.String)">
+            <summary>
+            获取单个key的值
+            </summary>
+            <param name="key">键</param>
+            <returns>值</returns>
+        </member>
+        <member name="M:yumaster.Tools.NoSQL.RedisHelper.GetStringAsync(System.Collections.Generic.List{System.String})">
+            <summary>
+            获取多个Key
+            </summary>
+            <param name="listKey">键集合</param>
+            <returns>值集合</returns>
+        </member>
+        <member name="M:yumaster.Tools.NoSQL.RedisHelper.GetStringAsync``1(System.String)">
+            <summary>
+            获取一个key的对象
+            </summary>
+            <typeparam name="T">数据类型</typeparam>
+            <param name="key">键</param>
+            <returns>实例对象</returns>
+        </member>
+        <member name="M:yumaster.Tools.NoSQL.RedisHelper.IncrementStringAsync(System.String,System.Double)">
+            <summary>
+            为数字增长val
+            </summary>
+            <param name="key">键</param>
+            <param name="val">可以为负</param>
+            <returns>增长后的值</returns>
+        </member>
+        <member name="M:yumaster.Tools.NoSQL.RedisHelper.DecrementStringAsync(System.String,System.Double)">
+            <summary>
+            为数字减少val
+            </summary>
+            <param name="key">键</param>
+            <param name="val">可以为负</param>
+            <returns>减少后的值</returns>
+        </member>
+        <member name="M:yumaster.Tools.NoSQL.RedisHelper.HashExists(System.String,System.String)">
+            <summary>
+            判断某个数据是否已经被缓存
+            </summary>
+            <param name="key">键</param>
+            <param name="dataKey">对象的字段</param>
+            <returns>是否缓存成功</returns>
+        </member>
+        <member name="M:yumaster.Tools.NoSQL.RedisHelper.SetHash``1(System.String,System.String,``0)">
+            <summary>
+            存储数据到hash表
+            </summary>
+            <typeparam name="T">数据类型</typeparam>
+            <param name="key">键</param>
+            <param name="dataKey">对象的字段</param>
+            <param name="t">对象实例</param>
+            <returns>是否存储成功</returns>
+        </member>
+        <member name="M:yumaster.Tools.NoSQL.RedisHelper.SetHash``1(System.String,System.String,``0,System.TimeSpan)">
+            <summary>
+            存储数据到hash表
+            </summary>
+            <typeparam name="T">数据类型</typeparam>
+            <param name="key">键</param>
+            <param name="dataKey">对象的字段</param>
+            <param name="t">对象实例</param>
+            <param name="expire">过期时间</param>
+            <returns>是否存储成功</returns>
+        </member>
+        <member name="M:yumaster.Tools.NoSQL.RedisHelper.DeleteHash(System.String,System.String)">
+            <summary>
+            移除hash中的某值
+            </summary>
+            <param name="key">键</param>
+            <param name="dataKey">对象的字段</param>
+            <returns>是否移除成功</returns>
+        </member>
+        <member name="M:yumaster.Tools.NoSQL.RedisHelper.DeleteHash(System.String,System.Collections.Generic.List{StackExchange.Redis.RedisValue})">
+            <summary>
+            移除hash中的多个值
+            </summary>
+            <param name="key">键</param>
+            <param name="dataKeys">对象的字段集合</param>
+            <returns>数量</returns>
+        </member>
+        <member name="M:yumaster.Tools.NoSQL.RedisHelper.GetHash``1(System.String,System.String)">
+            <summary>
+            从hash表获取数据
+            </summary>
+            <typeparam name="T">数据类型</typeparam>
+            <param name="key">键</param>
+            <param name="dataKey">对象的字段</param>
+            <returns>对象实例</returns>
+        </member>
+        <member name="M:yumaster.Tools.NoSQL.RedisHelper.IncrementHash(System.String,System.String,System.Double)">
+            <summary>
+            为数字增长val
+            </summary>
+            <param name="key">键</param>
+            <param name="dataKey">对象的字段</param>
+            <param name="val">可以为负</param>
+            <returns>增长后的值</returns>
+        </member>
+        <member name="M:yumaster.Tools.NoSQL.RedisHelper.DecrementHash(System.String,System.String,System.Double)">
+            <summary>
+            为数字减少val
+            </summary>
+            <param name="key">键</param>
+            <param name="dataKey">对象的字段</param>
+            <param name="val">可以为负</param>
+            <returns>减少后的值</returns>
+        </member>
+        <member name="M:yumaster.Tools.NoSQL.RedisHelper.HashKeys``1(System.String)">
+            <summary>
+            获取hashkey所有Redis key
+            </summary>
+            <typeparam name="T">数据类型</typeparam>
+            <param name="key">键</param>
+            <returns>数据集合</returns>
+        </member>
+        <member name="M:yumaster.Tools.NoSQL.RedisHelper.ExistsHashAsync(System.String,System.String)">
+            <summary>
+            判断某个数据是否已经被缓存
+            </summary>
+            <param name="key">键</param>
+            <param name="dataKey">对象的字段</param>
+            <returns>是否缓存成功</returns>
+        </member>
+        <member name="M:yumaster.Tools.NoSQL.RedisHelper.SetHashAsync``1(System.String,System.String,``0)">
+            <summary>
+            存储数据到hash表
+            </summary>
+            <typeparam name="T">数据类型</typeparam>
+            <param name="key">键</param>
+            <param name="dataKey">对象的字段</param>
+            <param name="t">对象实例</param>
+            <returns>是否存储成功</returns>
+        </member>
+        <member name="M:yumaster.Tools.NoSQL.RedisHelper.SetHashAsync``1(System.String,System.String,``0,System.TimeSpan)">
+            <summary>
+            存储数据到hash表
+            </summary>
+            <typeparam name="T">数据类型</typeparam>
+            <param name="key">键</param>
+            <param name="dataKey">对象的字段</param>
+            <param name="t">对象实例</param>
+            <param name="expire"></param>
+            <returns>是否存储成功</returns>
+        </member>
+        <member name="M:yumaster.Tools.NoSQL.RedisHelper.DeleteHashAsync(System.String,System.String)">
+            <summary>
+            移除hash中的某值
+            </summary>
+            <param name="key">键</param>
+            <param name="dataKey">对象的字段</param>
+            <returns>是否移除成功</returns>
+        </member>
+        <member name="M:yumaster.Tools.NoSQL.RedisHelper.DeleteHashAsync(System.String,System.Collections.Generic.List{StackExchange.Redis.RedisValue})">
+            <summary>
+            移除hash中的多个值
+            </summary>
+            <param name="key">键</param>
+            <param name="dataKeys">对象的字段集合</param>
+            <returns>数量</returns>
+        </member>
+        <member name="M:yumaster.Tools.NoSQL.RedisHelper.GetHashAsync``1(System.String,System.String)">
+            <summary>
+            从hash表获取数据
+            </summary>
+            <typeparam name="T">数据类型</typeparam>
+            <param name="key">键</param>
+            <param name="dataKey">对象的字段</param>
+            <returns>对象实例</returns>
+        </member>
+        <member name="M:yumaster.Tools.NoSQL.RedisHelper.IncrementHashAsync(System.String,System.String,System.Double)">
+            <summary>
+            为数字增长val
+            </summary>
+            <param name="key">键</param>
+            <param name="dataKey">对象的字段</param>
+            <param name="val">可以为负</param>
+            <returns>增长后的值</returns>
+        </member>
+        <member name="M:yumaster.Tools.NoSQL.RedisHelper.DecrementHashAsync(System.String,System.String,System.Double)">
+            <summary>
+            为数字减少val
+            </summary>
+            <param name="key">键</param>
+            <param name="dataKey">对象的字段</param>
+            <param name="val">可以为负</param>
+            <returns>减少后的值</returns>
+        </member>
+        <member name="M:yumaster.Tools.NoSQL.RedisHelper.HashKeysAsync``1(System.String)">
+            <summary>
+            获取hashkey所有Redis key
+            </summary>
+            <typeparam name="T">数据类型</typeparam>
+            <param name="key">键</param>
+            <returns>数据集合</returns>
+        </member>
+        <member name="M:yumaster.Tools.NoSQL.RedisHelper.RemoveList``1(System.String,``0)">
+            <summary>
+            移除指定ListId的内部List的值
+            </summary>
+            <typeparam name="T">数据类型</typeparam>
+            <param name="key">键</param>
+            <param name="value">值</param>
+        </member>
+        <member name="M:yumaster.Tools.NoSQL.RedisHelper.ListRange``1(System.String)">
+            <summary>
+            获取指定key的List
+            </summary>
+            <typeparam name="T">数据类型</typeparam>
+            <param name="key">键</param>
+            <returns>数据集</returns>
+        </member>
+        <member name="M:yumaster.Tools.NoSQL.RedisHelper.ListRightPush``1(System.String,``0)">
+            <summary>
+            入队
+            </summary>
+            <typeparam name="T">数据类型</typeparam>
+            <param name="key">键</param>
+            <param name="value">值</param>
+        </member>
+        <member name="M:yumaster.Tools.NoSQL.RedisHelper.ListRightPop``1(System.String)">
+            <summary>
+            出队
+            </summary>
+            <typeparam name="T">数据类型</typeparam>
+            <param name="key">键</param>
+            <returns>值</returns>
+        </member>
+        <member name="M:yumaster.Tools.NoSQL.RedisHelper.ListLeftPush``1(System.String,``0)">
+            <summary>
+            入栈
+            </summary>
+            <typeparam name="T">数据类型</typeparam>
+            <param name="key">键</param>
+            <param name="value">值</param>
+        </member>
+        <member name="M:yumaster.Tools.NoSQL.RedisHelper.ListLeftPop``1(System.String)">
+            <summary>
+            出栈
+            </summary>
+            <typeparam name="T">数据类型</typeparam>
+            <param name="key">键</param>
+            <returns>对象实例</returns>
+        </member>
+        <member name="M:yumaster.Tools.NoSQL.RedisHelper.ListLength(System.String)">
+            <summary>
+            获取集合中的数量
+            </summary>
+            <param name="key">键</param>
+            <returns>数量</returns>
+        </member>
+        <member name="M:yumaster.Tools.NoSQL.RedisHelper.RemoveListAsync``1(System.String,``0)">
+            <summary>
+            移除指定ListId的内部List的值
+            </summary>
+            <param name="key">键</param>
+            <param name="value">值</param>
+        </member>
+        <member name="M:yumaster.Tools.NoSQL.RedisHelper.ListRangeAsync``1(System.String)">
+            <summary>
+            获取指定key的List
+            </summary>
+            <typeparam name="T">数据类型</typeparam>
+            <param name="key">键</param>
+            <returns>数据集合</returns>
+        </member>
+        <member name="M:yumaster.Tools.NoSQL.RedisHelper.ListRightPushAsync``1(System.String,``0)">
+            <summary>
+            入队
+            </summary>
+            <typeparam name="T">数据类型</typeparam>
+            <param name="key">键</param>
+            <param name="value">值</param>
+        </member>
+        <member name="M:yumaster.Tools.NoSQL.RedisHelper.ListRightPopAsync``1(System.String)">
+            <summary>
+            出队
+            </summary>
+            <typeparam name="T">数据类型</typeparam>
+            <param name="key">键</param>
+            <returns>对象实例</returns>
+        </member>
+        <member name="M:yumaster.Tools.NoSQL.RedisHelper.ListLeftPushAsync``1(System.String,``0)">
+            <summary>
+            入栈
+            </summary>
+            <typeparam name="T">数据类型</typeparam>
+            <param name="key">键</param>
+            <param name="value">值</param>
+        </member>
+        <member name="M:yumaster.Tools.NoSQL.RedisHelper.ListLeftPopAsync``1(System.String)">
+            <summary>
+            出栈
+            </summary>
+            <typeparam name="T">数据类型</typeparam>
+            <param name="key">键</param>
+            <returns>实例对象</returns>
+        </member>
+        <member name="M:yumaster.Tools.NoSQL.RedisHelper.ListLengthAsync(System.String)">
+            <summary>
+            获取集合中的数量
+            </summary>
+            <param name="key">键</param>
+            <returns>数量</returns>
+        </member>
+        <member name="M:yumaster.Tools.NoSQL.RedisHelper.AddSortedSet``1(System.String,``0,System.Double)">
+            <summary>
+            添加
+            </summary>
+            <param name="key">键</param>
+            <param name="value">值</param>
+            <param name="score">排序号</param>
+        </member>
+        <member name="M:yumaster.Tools.NoSQL.RedisHelper.RemoveSortedSet``1(System.String,``0)">
+            <summary>
+            删除
+            </summary>
+            <param name="key">键</param>
+            <param name="value">值</param>
+        </member>
+        <member name="M:yumaster.Tools.NoSQL.RedisHelper.SetRangeSortedByRank``1(System.String)">
+            <summary>
+            获取全部
+            </summary>
+            <param name="key">键</param>
+            <returns>数据集合</returns>
+        </member>
+        <member name="M:yumaster.Tools.NoSQL.RedisHelper.SetSortedLength(System.String)">
+            <summary>
+            获取集合中的数量
+            </summary>
+            <param name="key">键</param>
+            <returns>数量</returns>
+        </member>
+        <member name="M:yumaster.Tools.NoSQL.RedisHelper.SortedSetAddAsync``1(System.String,``0,System.Double)">
+            <summary>
+            添加
+            </summary>
+            <param name="key">键</param>
+            <param name="value">值</param>
+            <param name="score">排序号</param>
+        </member>
+        <member name="M:yumaster.Tools.NoSQL.RedisHelper.SortedSetRemoveAsync``1(System.String,``0)">
+            <summary>
+            删除
+            </summary>
+            <param name="key">键</param>
+            <param name="value">值</param>
+        </member>
+        <member name="M:yumaster.Tools.NoSQL.RedisHelper.SortedSetRangeByRankAsync``1(System.String)">
+            <summary>
+            获取全部
+            </summary>
+            <param name="key">键</param>
+            <returns>数据集合</returns>
+        </member>
+        <member name="M:yumaster.Tools.NoSQL.RedisHelper.SortedSetLengthAsync(System.String)">
+            <summary>
+            获取集合中的数量
+            </summary>
+            <param name="key">键</param>
+            <returns>数量</returns>
+        </member>
+        <member name="M:yumaster.Tools.NoSQL.RedisHelper.DeleteKey(System.String)">
+            <summary>
+            删除单个key
+            </summary>
+            <param name="key">redis key</param>
+            <returns>是否删除成功</returns>
+        </member>
+        <member name="M:yumaster.Tools.NoSQL.RedisHelper.DeleteKeyAsync(System.String)">
+            <summary>
+            删除单个key
+            </summary>
+            <param name="key">redis key</param>
+            <returns>是否删除成功</returns>
+        </member>
+        <member name="M:yumaster.Tools.NoSQL.RedisHelper.DeleteKey(System.Collections.Generic.List{System.String})">
+            <summary>
+            删除多个key
+            </summary>
+            <param name="keys">rediskey</param>
+            <returns>成功删除的个数</returns>
+        </member>
+        <member name="M:yumaster.Tools.NoSQL.RedisHelper.KeyExists(System.String)">
+            <summary>
+            判断key是否存储
+            </summary>
+            <param name="key">键</param>
+            <returns>是否存储成功</returns>
+        </member>
+        <member name="M:yumaster.Tools.NoSQL.RedisHelper.RenameKey(System.String,System.String)">
+            <summary>
+            重新命名key
+            </summary>
+            <param name="key">旧的键</param>
+            <param name="newKey">新的键</param>
+            <returns>处理结果</returns>
+        </member>
+        <member name="M:yumaster.Tools.NoSQL.RedisHelper.Expire(System.String,System.Nullable{System.TimeSpan})">
+            <summary>
+            设置Key的过期时间
+            </summary>
+            <param name="key">键</param>
+            <param name="expiry">过期时间</param>
+            <returns>处理结果</returns>
+        </member>
+        <member name="M:yumaster.Tools.NoSQL.RedisHelper.ExpireAsync(System.String,System.Nullable{System.TimeSpan})">
+            <summary>
+            设置Key的过期时间
+            </summary>
+            <param name="key">键</param>
+            <param name="expiry">过期时间</param>
+            <returns>处理结果</returns>
+        </member>
+        <member name="M:yumaster.Tools.NoSQL.RedisHelper.Subscribe(System.String,System.Action{StackExchange.Redis.RedisChannel,StackExchange.Redis.RedisValue})">
+            <summary>
+            Redis发布订阅  订阅
+            </summary>
+            <param name="subChannel">订阅频道</param>
+            <param name="handler">处理过程</param>
+        </member>
+        <member name="M:yumaster.Tools.NoSQL.RedisHelper.Publish``1(System.String,``0)">
+            <summary>
+            Redis发布订阅  发布
+            </summary>
+            <typeparam name="T">消息对象</typeparam>
+            <param name="channel">发布频道</param>
+            <param name="msg">消息</param>
+            <returns>消息的数量</returns>
+        </member>
+        <member name="M:yumaster.Tools.NoSQL.RedisHelper.Unsubscribe(System.String)">
+            <summary>
+            Redis发布订阅  取消订阅
+            </summary>
+            <param name="channel">频道</param>
+        </member>
+        <member name="M:yumaster.Tools.NoSQL.RedisHelper.UnsubscribeAll">
+            <summary>
+            Redis发布订阅  取消全部订阅
+            </summary>
+        </member>
+        <member name="M:yumaster.Tools.NoSQL.RedisHelper.CreateTransaction">
+            <summary>
+            创建一个事务
+            </summary>
+            <returns>事务对象</returns>
+        </member>
+        <member name="M:yumaster.Tools.NoSQL.RedisHelper.GetDatabase">
+            <summary>
+            获得一个数据库实例
+            </summary>
+            <returns>数据库实例</returns>
+        </member>
+        <member name="M:yumaster.Tools.NoSQL.RedisHelper.GetServer(System.String)">
+            <summary>
+            获得一个服务器实例
+            </summary>
+            <param name="hostAndPort">服务器地址</param>
+            <returns>服务器实例</returns>
+        </member>
+        <member name="M:yumaster.Tools.NoSQL.RedisHelper.SetSysCustomKey(System.String)">
+            <summary>
+            设置前缀
+            </summary>
+            <param name="customKey">前缀</param>
+        </member>
+        <member name="T:yumaster.Tools.Systems.Lock">
+            <summary>
+            分布式锁
+            </summary>
+        </member>
+        <member name="M:yumaster.Tools.Systems.Lock.#ctor(StackExchange.Redis.RedisKey,StackExchange.Redis.RedisValue,System.TimeSpan)">
+            <summary>
+            分布式锁
+            </summary>
+            <param name="resource"></param>
+            <param name="val"></param>
+            <param name="validity"></param>
+        </member>
+        <member name="P:yumaster.Tools.Systems.Lock.Resource">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:yumaster.Tools.Systems.Lock.Value">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:yumaster.Tools.Systems.Lock.Validity">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:yumaster.Tools.Systems.RedisLock">
+            <summary>
+            Redis分布式锁
+            </summary>
+        </member>
+        <member name="M:yumaster.Tools.Systems.RedisLock.Finalize">
+            <summary>
+            终结器
+            </summary>
+        </member>
+        <member name="F:yumaster.Tools.Systems.RedisLock.LockScript">
+            <summary>
+            KEYS[1] ：需要加锁的key，这里需要是字符串类型。
+            ARGV[1] ：锁的超时时间，防止死锁
+            ARGV[2] ：锁的唯一标识
+            </summary>
+        </member>
+        <member name="F:yumaster.Tools.Systems.RedisLock.UnLockScript">
+            <summary>
+            – KEYS[1] ：需要加锁的key，这里需要是字符串类型。
+            – KEYS[2] ：redis消息的ChannelName,一个分布式锁对应唯一的一个channelName:“redisson_lock__channel__{” + getName() + “}”
+            – ARGV[1] ：reids消息体，这里只需要一个字节的标记就可以，主要标记redis的key已经解锁，再结合redis的Subscribe，能唤醒其他订阅解锁消息的客户端线程申请锁。
+            – ARGV[2] ：锁的超时时间，防止死锁
+            – ARGV[3] ：锁的唯一标识
+            </summary>
+        </member>
+        <member name="F:yumaster.Tools.Systems.RedisLock._leaseTimeSpan">
+            <summary>
+            默认的30秒过期时间
+            </summary>
+        </member>
+        <member name="M:yumaster.Tools.Systems.RedisLock.#ctor(System.String)">
+            <summary>
+            默认连接127.0.0.1:6379,synctimeout=20000
+            </summary>
+            <param name="connstr"></param>
+        </member>
+        <member name="M:yumaster.Tools.Systems.RedisLock.TryLock(StackExchange.Redis.RedisKey,System.TimeSpan,System.TimeSpan,yumaster.Tools.Systems.Lock@)">
+            <summary>
+            加锁
+            </summary>
+            <param name="resource">锁名</param>
+            <param name="waitTimeSpan">如果没有锁成功,允许动重试申请锁的最大时长</param>
+            <param name="leaseTimeSpan">如果锁成功,对于锁(key)的过期时间</param>
+            <param name="lockObject">锁成功信息包装成对象返回</param>
+            <returns>true:成功</returns>
+        </member>
+        <member name="M:yumaster.Tools.Systems.RedisLock.UnLock(yumaster.Tools.Systems.Lock)">
+            <summary>
+            解锁
+            </summary>
+            <param name="lockObject">锁成功的返回对象</param>
+            <returns></returns>
+        </member>
+        <member name="M:yumaster.Tools.Systems.RedisLock.CreateUniqueLockId">
+            <summary>
+            创建唯一锁id
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:yumaster.Tools.Systems.RedisLock.SetTimeOut(System.Timers.ElapsedEventHandler,System.Int32)">
+            <summary>
+            设置超时
+            </summary>
+            <param name="doWork"></param>
+            <param name="time"></param>
+        </member>
+        <member name="M:yumaster.Tools.Systems.RedisLock.TaskTimeOut(System.Func{yumaster.Tools.Systems.Lock,System.Boolean},yumaster.Tools.Systems.Lock,System.Int32)">
+            <summary>
+            任务超时
+            </summary>
+            <param name="action"></param>
+            <param name="lockObj"></param>
+            <param name="time"></param>
+            <returns></returns>
+        </member>
+        <member name="M:yumaster.Tools.Systems.RedisLock.Dispose">
+            <summary>执行与释放或重置非托管资源关联的应用程序定义的任务。</summary>
+        </member>
+        <member name="M:yumaster.Tools.Systems.RedisLock.Dispose(System.Boolean)">
+            <summary>
+            释放锁
+            </summary>
+            <param name="disposing"></param>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,9 @@
+D:\vscode\master\Tools\yumaster.Tools.Core\obj\Debug\netstandard2.0\yumaster.Tools.Core.csproj.CoreCompileInputs.cache
+D:\vscode\master\Tools\yumaster.Tools.Core\obj\Debug\netstandard2.0\yumaster.Tools.Core.AssemblyInfoInputs.cache
+D:\vscode\master\Tools\yumaster.Tools.Core\obj\Debug\netstandard2.0\yumaster.Tools.Core.AssemblyInfo.cs
+D:\vscode\master\Tools\yumaster.Tools.Core\bin\Debug\netstandard2.0\yumaster.Tools.Core.deps.json
+D:\vscode\master\Tools\yumaster.Tools.Core\bin\Debug\netstandard2.0\yumaster.Tools.Core.dll
+D:\vscode\master\Tools\yumaster.Tools.Core\obj\Debug\netstandard2.0\yumaster.Tools.Core.csprojAssemblyReference.cache
+D:\vscode\master\Tools\yumaster.Tools.Core\bin\Debug\netstandard2.0\yumaster.Tools.Abstractions.dll
+D:\vscode\master\Tools\yumaster.Tools.Core\bin\Debug\netstandard2.0\yumaster.Tools.Abstractions.pdb
+D:\vscode\master\Tools\yumaster.Tools.Core\obj\Debug\netstandard2.0\yumaster.Tools.Core.csproj.CopyComplete

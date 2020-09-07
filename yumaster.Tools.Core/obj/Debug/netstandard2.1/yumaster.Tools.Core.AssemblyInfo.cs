@@ -18,7 +18,7 @@ using System.Reflection;
     "oSql等常用封装。\r\n      官网教程：https://yumaster.net/55\r\n      github：https://github.com/" +
     "yumaster/yumaster.Tools\r\n    ")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("2.3.1.1")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("2.3.1.1")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("2.3.1.1+f10ead6c7dab707326c2c7bb07b49789f7165417")]
 [assembly: System.Reflection.AssemblyProductAttribute("yumaster.Tools.Core")]
 [assembly: System.Reflection.AssemblyTitleAttribute("yumaster.Tools.Core")]
 [assembly: System.Reflection.AssemblyVersionAttribute("2.3.1.1")]

@@ -14,7 +14,7 @@
     <releaseNotes>如有问题请联系作者QQ:346566958，或者到项目的github反馈问题，详细的API文档在github上:https://github.com/yumaster/yumaster.Tools</releaseNotes>
     <copyright>Copyright © 大雨科技</copyright>
     <tags>yumaster.Tools</tags>
-    <repository type="Github" url="https://github.com/yumaster/yumaster.Tools" />
+    <repository type="Github" url="https://github.com/yumaster/yumaster.Tools" commit="f10ead6c7dab707326c2c7bb07b49789f7165417" />
     <dependencies>
       <group targetFramework=".NETStandard2.1">
         <dependency id="yumaster.Tools.Abstractions" version="2.3.1.1" exclude="Build,Analyzers" />

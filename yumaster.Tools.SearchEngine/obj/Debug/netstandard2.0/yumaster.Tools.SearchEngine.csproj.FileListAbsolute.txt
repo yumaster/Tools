@@ -1,0 +1,4 @@
+D:\vscode\master\Tools\yumaster.Tools.SearchEngine\obj\Debug\netstandard2.0\yumaster.Tools.SearchEngine.csprojAssemblyReference.cache
+D:\vscode\master\Tools\yumaster.Tools.SearchEngine\obj\Debug\netstandard2.0\yumaster.Tools.SearchEngine.csproj.CoreCompileInputs.cache
+D:\vscode\master\Tools\yumaster.Tools.SearchEngine\obj\Debug\netstandard2.0\yumaster.Tools.SearchEngine.AssemblyInfoInputs.cache
+D:\vscode\master\Tools\yumaster.Tools.SearchEngine\obj\Debug\netstandard2.0\yumaster.Tools.SearchEngine.AssemblyInfo.cs

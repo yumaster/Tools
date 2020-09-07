@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>yumaster.Tools.SearchEngine_int</id>
+    <version>1.0.3.3</version>
+    <authors>大雨科技</authors>
+    <owners>大雨科技</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <projectUrl>https://github.com/yumaster/tools</projectUrl>
+    <description>基于EntityFrameworkCore和Lucene.NET实现的全文检索搜索引擎</description>
+    <releaseNotes>用λ表达式树替代反射</releaseNotes>
+    <copyright>大雨科技</copyright>
+    <repository type="git" url="https://github.com/yumaster/Tools.git" commit="f10ead6c7dab707326c2c7bb07b49789f7165417" />
+    <dependencies>
+      <group targetFramework=".NETStandard2.1">
+        <dependency id="JieBa.Lucene.Analyzer" version="1.0.1" exclude="Build,Analyzers" />
+        <dependency id="Lucene.Net" version="4.8.0-beta00005" exclude="Build,Analyzers" />
+        <dependency id="Lucene.Net.QueryParser" version="4.8.0-beta00005" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.EntityFrameworkCore" version="3.1.7" exclude="Build,Analyzers" />
+        <dependency id="Newtonsoft.Json" version="12.0.3" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="D:\vscode\master\Tools\yumaster.Tools.SearchEngine\bin\Debug\netstandard2.1\yumaster.Tools.SearchEngine.dll" target="lib\netstandard2.1\yumaster.Tools.SearchEngine.dll" />
+    <file src="D:\vscode\master\Tools\yumaster.Tools.SearchEngine\bin\Debug\netstandard2.1\yumaster.Tools.SearchEngine.xml" target="lib\netstandard2.1\yumaster.Tools.SearchEngine.xml" />
+  </files>
+</package>

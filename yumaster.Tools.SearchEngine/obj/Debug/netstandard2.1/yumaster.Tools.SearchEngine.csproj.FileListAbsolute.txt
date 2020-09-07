@@ -1,0 +1,11 @@
+D:\vscode\master\Tools\yumaster.Tools.SearchEngine\bin\Debug\netstandard2.1\yumaster.Tools.SearchEngine.deps.json
+D:\vscode\master\Tools\yumaster.Tools.SearchEngine\bin\Debug\netstandard2.1\yumaster.Tools.SearchEngine.dll
+D:\vscode\master\Tools\yumaster.Tools.SearchEngine\bin\Debug\netstandard2.1\yumaster.Tools.SearchEngine.pdb
+D:\vscode\master\Tools\yumaster.Tools.SearchEngine\bin\Debug\netstandard2.1\yumaster.Tools.SearchEngine.xml
+D:\vscode\master\Tools\yumaster.Tools.SearchEngine\obj\Debug\netstandard2.1\yumaster.Tools.SearchEngine.csprojAssemblyReference.cache
+D:\vscode\master\Tools\yumaster.Tools.SearchEngine\obj\Debug\netstandard2.1\yumaster.Tools.SearchEngine.csproj.CoreCompileInputs.cache
+D:\vscode\master\Tools\yumaster.Tools.SearchEngine\obj\Debug\netstandard2.1\yumaster.Tools.SearchEngine.sourcelink.json
+D:\vscode\master\Tools\yumaster.Tools.SearchEngine\obj\Debug\netstandard2.1\yumaster.Tools.SearchEngine.AssemblyInfoInputs.cache
+D:\vscode\master\Tools\yumaster.Tools.SearchEngine\obj\Debug\netstandard2.1\yumaster.Tools.SearchEngine.AssemblyInfo.cs
+D:\vscode\master\Tools\yumaster.Tools.SearchEngine\obj\Debug\netstandard2.1\yumaster.Tools.SearchEngine.dll
+D:\vscode\master\Tools\yumaster.Tools.SearchEngine\obj\Debug\netstandard2.1\yumaster.Tools.SearchEngine.pdb

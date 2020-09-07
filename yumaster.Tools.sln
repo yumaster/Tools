@@ -7,7 +7,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "yumaster.Tools", "yumaster.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "yumaster.Tools.Abstractions", "yumaster.Tools.Abstractions\yumaster.Tools.Abstractions.csproj", "{13F58118-5FF6-4956-B56D-8A43BB3D6649}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "yumaster.Tools.Core", "yumaster.Tools.Core\yumaster.Tools.Core.csproj", "{D62DAD41-2225-4F51-BBE3-77E50E280E32}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "yumaster.Tools.Core", "yumaster.Tools.Core\yumaster.Tools.Core.csproj", "{D62DAD41-2225-4F51-BBE3-77E50E280E32}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "yumaster.Tools.SearchEngine", "yumaster.Tools.SearchEngine\yumaster.Tools.SearchEngine.csproj", "{0DA29D5F-8116-4BDD-9A04-48B2F961DAAD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{D62DAD41-2225-4F51-BBE3-77E50E280E32}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D62DAD41-2225-4F51-BBE3-77E50E280E32}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D62DAD41-2225-4F51-BBE3-77E50E280E32}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0DA29D5F-8116-4BDD-9A04-48B2F961DAAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0DA29D5F-8116-4BDD-9A04-48B2F961DAAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0DA29D5F-8116-4BDD-9A04-48B2F961DAAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0DA29D5F-8116-4BDD-9A04-48B2F961DAAD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
